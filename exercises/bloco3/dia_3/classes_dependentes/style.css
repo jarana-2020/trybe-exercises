@@ -6,3 +6,40 @@ ol li:nth-of-type(2n+1){
     background-color: yellow;
     text-transform: capitalize;
 }
+h1,h2{
+    color: red;
+}
+h1 em,h2 em{
+    font-size: 40px;
+    border: 1px solid black;
+}
+li{
+    font-size: 20px;
+}
+li em{
+    font-weight: bold;
+}
+.languages li:not(:nth-child(n+4)){
+    color: blue;
+}
+.pink{
+    background-color: pink;
+}
+.best_allies li a:hover{
+    font-weight: 700;
+}
+.best_allies li a[href*="stackoverflow"] {
+    color: orange;
+  }
+  .best_allies li a[href*="w3schools"] {
+    color: green;
+  }
+  .best_allies li a[href*="mozilla"] {
+    color: black;
+  }
+  .best_allies li a[href*="devdocs"] {
+    color: yellow;
+  }
+  .best_allies li a[href*="trybe"] {
+    color: green;
+  }

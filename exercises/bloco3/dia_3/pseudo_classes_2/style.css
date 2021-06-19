@@ -1,3 +1,18 @@
 div:hover{
     border: solid black;
 }
+.primary_color{
+    color: yellow;
+}
+.secundary_color{
+    color: green;
+}
+.complementary_color{
+    color: limegreen;
+}
+.dark.color{
+    color: navy;
+}
+.clear_color{
+    color: cyan;
+}

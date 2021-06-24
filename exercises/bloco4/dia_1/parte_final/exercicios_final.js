@@ -15,6 +15,7 @@ let somaAngulos = angulo1 + angulo2 + angulo3;
 let pecaXadrez = "Bishop";
 let grade = 69;
 
+
 if (a > b && a > c){
     maior = a;
 }else if (b > a && b > c){

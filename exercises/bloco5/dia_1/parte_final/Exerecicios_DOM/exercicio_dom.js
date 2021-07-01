@@ -21,3 +21,11 @@ function alterTag(){
     alterH1.innerText = 'Exercício 5.1 - JavaScript';
 }
 alterTag();
+
+function alterUpper(){
+    let upperCase = document.getElementsByTagName('p');
+        for(let index = 0; index < upperCase.length; index += 1){
+            upperCase[index].innerHTML = upperCase[index].innerHTML.toUpperCase();
+        }
+}
+alterUpper();

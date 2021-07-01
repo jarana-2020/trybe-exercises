@@ -16,3 +16,8 @@ function alterMainCenter(){
 }
 alterMainCenter();
 
+function alterTag(){
+    let alterH1 = document.getElementsByTagName('h1')[0];
+    alterH1.innerText = 'Exercício 5.1 - JavaScript';
+}
+alterTag();

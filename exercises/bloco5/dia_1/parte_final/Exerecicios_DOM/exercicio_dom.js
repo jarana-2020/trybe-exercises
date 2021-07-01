@@ -29,3 +29,11 @@ function alterUpper(){
         }
 }
 alterUpper();
+
+function showP(){
+    let showTagP = document.getElementsByTagName('p');
+        for(let index = 0; index < showTagP.length; index += 1){
+            console.log(showTagP[index].innerHTML);
+        }
+}
+showP();

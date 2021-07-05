@@ -1,0 +1,1 @@
+const elementOndeVoceEsta = document.getElementById('elementoOndeVoceEsta');

@@ -1,0 +1,1 @@
+const textAtention = elementOndeVoceEsta.nextSibling;

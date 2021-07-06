@@ -30,3 +30,29 @@ firstDiv.addEventListener('dblclick', resetText);
 // Não precisa passar o parâmetro dentro do addEventListener. O próprio
 // navegador fará esse trabalho por você, não é legal? Desse jeito, o
 // event.target na nossa função retornará o objeto 'divUm'.
+
+function AddClasstech(event){
+    const getElement = document.querySelector('.tech');
+    getElement.classList.remove('tech');
+    event.target.classList.add('tech');
+    input.value = '';
+}
+firstDiv.addEventListener('click', AddClasstech);
+secondDiv.addEventListener('click', AddClasstech);
+thirdDiv.addEventListener('click', AddClasstech);
+
+input.addEventListener('keyup', function(event){
+    const getElementTech = document.querySelector('.tech');
+    getElementTech.innerText = event.target.value;
+})
+myWebpage.addEventListener('dblclick',function (){
+    window.location.replace('https://www.uol.com.br');
+} );
+
+myWebpage.addEventListener('mouseover', function(event){
+    event.target.style.color = 'green';
+})
+
+myWebpage.addEventListener('mouseout', function(event){
+    event.target.style.color = 'unset';
+})

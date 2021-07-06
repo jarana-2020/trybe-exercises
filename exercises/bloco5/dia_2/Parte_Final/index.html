@@ -97,7 +97,7 @@
                 ul.appendChild(li);
             }
 
-            leftContent.appendChild(ul);
+            rightContent.appendChild(ul);
 
             for(let index = 1; index <=3; index += 1){
                 let h3 = document.createElement('h3');
@@ -117,7 +117,11 @@
             let alterColorDivFather = document.querySelector('.center-content');
             alterColorDivFather.parentNode.style.background = 'green';
 
+            for(let index = 1; index <=2; index += 1){
+              ul.lastChild.remove();
+            };
             
+
         </script>
     </body>
 </html>

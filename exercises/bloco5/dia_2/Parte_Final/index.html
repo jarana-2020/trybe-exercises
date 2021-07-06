@@ -62,13 +62,13 @@
             document.body.className = 'body';
             document.body.appendChild(addTagH1);
 
-            let addTagDivBody = document.createElement('div');
-            addTagDivBody.classList.add = 'main-content';
-            document.body.appendChild(addTagDivBody);
+            let mainContent = document.createElement('div');
+            mainContent.classList.add('main-content');
+            document.body.appendChild(mainContent);
 
             let centerContent = document.createElement('div');
-            centerContent.classList.add = 'center-content';
-            addTagDivBody.appendChild(centerContent);
+            centerContent.classList.add('center-content');
+            mainContent.appendChild(centerContent);
             
             let setTagP = document.createElement('p');
             setTagP.innerText = 'Requisito 4';
@@ -76,11 +76,11 @@
 
             let leftContent = document.createElement('div');
             leftContent.classList.add('left-content');
-            addTagDivBody.appendChild(leftContent);
+            mainContent.appendChild(leftContent);
 
             let rightContent = document.createElement('div');
             rightContent.classList.add('right-content');
-            addTagDivBody.appendChild(rightContent);
+            mainContent.appendChild(rightContent);
 
             let img = document.createElement('img');
             img.src = 'https://picsum.photos/200';
@@ -103,10 +103,13 @@
                 let h3 = document.createElement('h3');
                 h3.innerText = index;
                 h3.classList.add('description');
-                addTagDivBody.appendChild(h3);
+                mainContent.appendChild(h3);
             }
             
             addTagH1.classList.add('title');
+
+            let getLeftContent = document.querySelector('.left-content');
+            mainContent.removeChild(getLeftContent);
 
         </script>
     </body>

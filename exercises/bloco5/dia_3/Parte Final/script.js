@@ -119,3 +119,17 @@ function addLegend(color){
     getMyTasks.appendChild(getElementDiv);
 }
 addLegend('green');
+
+function taskSelect(){
+    let getElementTask = document.querySelector('.task');
+    let getElementTaskSelected = document.querySelector('.task selected');
+    getElementTask.addEventListener('click', function(event){
+        if(event.target.className === 'task'){
+            event.target.className = 'task selected';
+        }else{
+            event.target.className = 'task';
+        }
+        
+    })
+}
+taskSelect();

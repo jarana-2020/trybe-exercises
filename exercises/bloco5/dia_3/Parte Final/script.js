@@ -32,7 +32,7 @@ function createDays() {
         getUl.appendChild(createLi);
         
     }
-}
+};
 createDays();
 
 function holydays(buttonName){
@@ -41,7 +41,7 @@ function holydays(buttonName){
     createButtonHoliday.id = 'btn-holiday';
     let getButtonsContainer = document.querySelector('.buttons-container');
     getButtonsContainer.appendChild(createButtonHoliday);
-}
+};
 holydays('Feriados');
 
 function addButtonClick(){
@@ -58,7 +58,7 @@ function addButtonClick(){
     }
     })
     
-}
+};
 addButtonClick();
 
 function createButtonFriday(day){
@@ -67,7 +67,7 @@ function createButtonFriday(day){
     buttonFriday.id = 'btn-friday';
     buttonFriday.innerText = day;
     getDivButtonsContainer.appendChild(buttonFriday);
-}
+};
 createButtonFriday('Sexta-Feira');
 
 function alterTextFridays(fridays){
@@ -82,6 +82,23 @@ function alterTextFridays(fridays){
             }
         }
     })
-}
+};
 alterTextFridays([ 4, 11, 18, 25 ]);
 
+function mouseOver(){
+    let getDays = document.querySelector('#days');
+    getDays.addEventListener('mouseover', function(event){
+        event.target.style.fontSize = '30px';
+    } )
+};
+
+mouseOver();
+
+function mouseOut(){
+    let getDays = document.querySelector('#days');
+    getDays.addEventListener('mouseout', function(event){
+        event.target.style.fontSize = '20px';
+    } )
+};
+
+mouseOut();

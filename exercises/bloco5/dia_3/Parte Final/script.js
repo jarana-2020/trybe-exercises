@@ -110,3 +110,12 @@ function addTask(nameTask){
     getMyTasks.appendChild(getElementSpan);
 }
 addTask('lavar');
+
+function addLegend(color){
+    let getElementDiv = document.createElement('div');
+    getElementDiv.classList.add('task');
+    getElementDiv.style.backgroundColor = color;
+    let getMyTasks = document.querySelector('.my-tasks');
+    getMyTasks.appendChild(getElementDiv);
+}
+addLegend('green');

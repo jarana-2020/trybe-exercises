@@ -122,7 +122,6 @@ addLegend('green');
 
 function taskSelect(){
     let getElementTask = document.querySelector('.task');
-    let getElementTaskSelected = document.querySelector('.task selected');
     getElementTask.addEventListener('click', function(event){
         if(event.target.className === 'task'){
             event.target.className = 'task selected';
@@ -133,3 +132,19 @@ function taskSelect(){
     })
 }
 taskSelect();
+
+function setColorDays(){
+    let getDays = document.querySelector('#days');
+    let getElementTask = document.querySelector('.task');
+    let getElementSelected = document.getElementsByClassName('task selected');
+
+    getDays.addEventListener('click', function(event){
+        if(getElementSelected.length > 0){
+            event.target.style.color = getElementTask.style.backgroundColor;
+        }else{
+            event.target.style.color = 'rgb(119,119,119)';
+        }
+        
+    })
+}
+setColorDays();

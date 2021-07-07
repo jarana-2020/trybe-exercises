@@ -22,20 +22,20 @@ function createDays() {
         createLi.classList.add('day');
         createLi.innerText = dezDaysList[index];
 
-        if(dezDaysList[index] === 24 || dezDaysList[index] === 25 || dezDaysList[index] === 31){
+        if (dezDaysList[index] === 24 || dezDaysList[index] === 25 || dezDaysList[index] === 31) {
             createLi.classList.add('holiday');
         };
-        if(dezDaysList[index] === 4 || dezDaysList[index] === 11 || dezDaysList[index] === 18 || dezDaysList[index] === 25){    
+        if (dezDaysList[index] === 4 || dezDaysList[index] === 11 || dezDaysList[index] === 18 || dezDaysList[index] === 25) {
             createLi.classList.add('friday');
         };
-        
+
         getUl.appendChild(createLi);
-        
+
     }
 };
 createDays();
 
-function holydays(buttonName){
+function holydays(buttonName) {
     let createButtonHoliday = document.createElement('button');
     createButtonHoliday.innerHTML = buttonName;
     createButtonHoliday.id = 'btn-holiday';
@@ -44,24 +44,24 @@ function holydays(buttonName){
 };
 holydays('Feriados');
 
-function addButtonClick(){
+function addButtonClick() {
     let getButtonHolyday = document.querySelector('#btn-holiday');
-    getButtonHolyday.addEventListener('click', function(event){
-    let getDays = document.querySelectorAll('.holiday');
-    for(let index = 0; index < getDays.length; index += 1){
-        if(getDays[index].style.backgroundColor === 'yellow'){
-            getDays[index].style.backgroundColor = 'rgb(238,238,238)';
-        }else{
-            getDays[index].style.backgroundColor = 'yellow';
+    getButtonHolyday.addEventListener('click', function (event) {
+        let getDays = document.querySelectorAll('.holiday');
+        for (let index = 0; index < getDays.length; index += 1) {
+            if (getDays[index].style.backgroundColor === 'yellow') {
+                getDays[index].style.backgroundColor = 'rgb(238,238,238)';
+            } else {
+                getDays[index].style.backgroundColor = 'yellow';
+            }
+
         }
-       
-    }
     })
-    
+
 };
 addButtonClick();
 
-function createButtonFriday(day){
+function createButtonFriday(day) {
     let getDivButtonsContainer = document.querySelector('.buttons-container');
     let buttonFriday = document.createElement('button');
     buttonFriday.id = 'btn-friday';
@@ -70,40 +70,40 @@ function createButtonFriday(day){
 };
 createButtonFriday('Sexta-Feira');
 
-function alterTextFridays(fridays){
+function alterTextFridays(fridays) {
     let getButtonFriday = document.querySelector('#btn-friday');
     let getDaysFriday = document.querySelectorAll('.friday');
-    getButtonFriday.addEventListener('click', function(){
-        for(let index = 0; index < getDaysFriday.length; index += 1){
-            if(getDaysFriday[index].innerHTML !== 'Sextou !'){
+    getButtonFriday.addEventListener('click', function () {
+        for (let index = 0; index < getDaysFriday.length; index += 1) {
+            if (getDaysFriday[index].innerHTML !== 'Sextou !') {
                 getDaysFriday[index].innerHTML = 'Sextou !'
-            }else{
+            } else {
                 getDaysFriday[index].innerHTML = fridays[index];
             }
         }
     })
 };
-alterTextFridays([ 4, 11, 18, 25 ]);
+alterTextFridays([4, 11, 18, 25]);
 
-function mouseOver(){
+function mouseOver() {
     let getDays = document.querySelector('#days');
-    getDays.addEventListener('mouseover', function(event){
+    getDays.addEventListener('mouseover', function (event) {
         event.target.style.fontSize = '30px';
-    } )
+    })
 };
 
 mouseOver();
 
-function mouseOut(){
+function mouseOut() {
     let getDays = document.querySelector('#days');
-    getDays.addEventListener('mouseout', function(event){
+    getDays.addEventListener('mouseout', function (event) {
         event.target.style.fontSize = '20px';
-    } )
+    })
 };
 
 mouseOut();
 
-function addTask(nameTask){
+function addTask(nameTask) {
     let getElementSpan = document.createElement('span');
     getElementSpan.innerHTML = nameTask;
     let getMyTasks = document.querySelector('.my-tasks');
@@ -111,7 +111,7 @@ function addTask(nameTask){
 }
 addTask('lavar');
 
-function addLegend(color){
+function addLegend(color) {
     let getElementDiv = document.createElement('div');
     getElementDiv.classList.add('task');
     getElementDiv.style.backgroundColor = color;
@@ -120,31 +120,63 @@ function addLegend(color){
 }
 addLegend('green');
 
-function taskSelect(){
+function taskSelect() {
     let getElementTask = document.querySelector('.task');
-    getElementTask.addEventListener('click', function(event){
-        if(event.target.className === 'task'){
+    getElementTask.addEventListener('click', function (event) {
+        if (event.target.className === 'task') {
             event.target.className = 'task selected';
-        }else{
+        } else {
             event.target.className = 'task';
         }
-        
+
     })
 }
 taskSelect();
 
-function setColorDays(){
+function setColorDays() {
     let getDays = document.querySelector('#days');
     let getElementTask = document.querySelector('.task');
     let getElementSelected = document.getElementsByClassName('task selected');
 
-    getDays.addEventListener('click', function(event){
-        if(getElementSelected.length > 0){
+    getDays.addEventListener('click', function (event) {
+        if (getElementSelected.length > 0) {
             event.target.style.color = getElementTask.style.backgroundColor;
-        }else{
+        } else {
             event.target.style.color = 'rgb(119,119,119)';
         }
-        
+
     })
 }
 setColorDays();
+
+function addAppointment() {
+
+    let getBtnAdd = document.getElementById('btn-add');
+    let getInput = document.getElementById('task-input');
+    let getUl = document.querySelector('.task-list');;
+
+    getBtnAdd.addEventListener('click', function () {
+        if (getInput.value.length > 0) {
+            let getLi = document.createElement('li');
+            getLi.className = 'appointment';
+            getLi.innerText = getInput.value;
+            getUl.appendChild(getLi);
+            getInput.value = '';
+        } else {
+            alert('Error: Digite ao menos 1 caractere.');
+        }
+    })
+
+    getInput.addEventListener('keyup', function (event) {
+        let keycode = event.key;
+        if(keycode === 'Enter' && getInput.value.length > 0){
+            let getLi = document.createElement('li');
+            getLi.className = 'appointment';
+            getLi.innerText = getInput.value;
+            getUl.appendChild(getLi);
+            getInput.value = '';
+        }
+    })
+
+}
+addAppointment();

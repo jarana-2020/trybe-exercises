@@ -60,3 +60,12 @@ function addButtonClick(){
     
 }
 addButtonClick();
+
+function createButtonFriday(day){
+    let getDivButtonsContainer = document.querySelector('.buttons-container');
+    let buttonFriday = document.createElement('button');
+    buttonFriday.id = 'btn-friday';
+    buttonFriday.innerText = day;
+    getDivButtonsContainer.appendChild(buttonFriday);
+}
+createButtonFriday('Sexta-Feira');

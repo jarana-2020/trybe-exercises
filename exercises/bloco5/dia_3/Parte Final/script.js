@@ -44,3 +44,19 @@ function holydays(buttonName){
 }
 holydays('Feriados');
 
+function addButtonClick(){
+    let getButtonHolyday = document.querySelector('#btn-holiday');
+    getButtonHolyday.addEventListener('click', function(event){
+    let getDays = document.querySelectorAll('.holiday');
+    for(let index = 0; index < getDays.length; index += 1){
+        if(getDays[index].style.backgroundColor === 'yellow'){
+            getDays[index].style.backgroundColor = 'rgb(238,238,238)';
+        }else{
+            getDays[index].style.backgroundColor = 'yellow';
+        }
+       
+    }
+    })
+    
+}
+addButtonClick();

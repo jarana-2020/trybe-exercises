@@ -69,3 +69,19 @@ function createButtonFriday(day){
     getDivButtonsContainer.appendChild(buttonFriday);
 }
 createButtonFriday('Sexta-Feira');
+
+function alterTextFridays(fridays){
+    let getButtonFriday = document.querySelector('#btn-friday');
+    let getDaysFriday = document.querySelectorAll('.friday');
+    getButtonFriday.addEventListener('click', function(){
+        for(let index = 0; index < getDaysFriday.length; index += 1){
+            if(getDaysFriday[index].innerHTML !== 'Sextou !'){
+                getDaysFriday[index].innerHTML = 'Sextou !'
+            }else{
+                getDaysFriday[index].innerHTML = fridays[index];
+            }
+        }
+    })
+}
+alterTextFridays([ 4, 11, 18, 25 ]);
+

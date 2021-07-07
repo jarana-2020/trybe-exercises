@@ -102,3 +102,11 @@ function mouseOut(){
 };
 
 mouseOut();
+
+function addTask(nameTask){
+    let getElementSpan = document.createElement('span');
+    getElementSpan.innerHTML = nameTask;
+    let getMyTasks = document.querySelector('.my-tasks');
+    getMyTasks.appendChild(getElementSpan);
+}
+addTask('lavar');

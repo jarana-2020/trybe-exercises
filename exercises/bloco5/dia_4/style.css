@@ -1,19 +1,26 @@
-.input, .alter-text{
+.input, .alter-text {
     display: block;
     margin: auto;
 }
-.favorite-styled, .button-alter-text{
+
+.favorite-styled, .button-alter-text {
     display: block;
     margin-left: 50%;
     transform: translateX(-50%);
     margin-top: 30px;
 }
-.second-div{
+
+.second-div {
     display: inline-block;
     margin-left: 30px;
 }
-.content{
-    display: inline-block;
 
+.fiveth-div button{
+    align-items: center;
+    display: inline-block;
+    margin-top: 50px;
 }
 
+.content {
+    display: inline-block;
+}

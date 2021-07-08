@@ -51,6 +51,24 @@ window.onload = function(){
     }
     alterSizeText();
 
+    function alterSpacing() {
+        let getButtonSpacing = document.querySelector('.button-spacing');
+        let getInputSpacing = document.querySelector('.alter-spacing');
+        let getText = document.querySelector('.paragraph');
+        getButtonSpacing.addEventListener('click', function () {
+            if (getInputSpacing.value !== '' && parseInt(getInputSpacing.value)>= 20) {
+                getText.style.lineHeight = getInputSpacing.value + 'px';
+                localStorage.setItem('line-height', getInputSpacing.value + 'px');
+                getInputSpacing.value = '';
+            }else{
+                alert('O campo de tamanho de espaçamento não pode estar vazio e deve ser no minimo 20');
+                getInputSpacing.value = '';
+            }
+    
+        })
+    }
+    alterSpacing();
+
 
 
     let savedBackGroundColor = localStorage.getItem('page-color');
@@ -63,5 +81,11 @@ window.onload = function(){
     let savedFontSize = localStorage.getItem('font-size');
     let getFontSize = document.querySelector('.paragraph');
     getFontSize.style.fontSize = savedFontSize;
+
+    let savedLineHeight = localStorage.getItem('line-height');
+    let getLineHeight = document.querySelector('.paragraph');
+    getLineHeight.style.lineHeight = savedLineHeight;
+
+
 }
 

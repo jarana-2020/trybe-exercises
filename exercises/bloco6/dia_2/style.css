@@ -1,0 +1,40 @@
+.input, .select-state {
+    margin: 10px;
+    height: 20px;
+}
+
+.label {
+    display: block;
+}
+
+.resume-cv, .label-cv {
+    font-size: .8rem;
+    letter-spacing: 1px;
+}
+
+.resume-cv {
+    padding: 10px;
+    max-width: 100%;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+    display: block;
+    width: 98%;
+}
+
+.fieldset {
+    margin-bottom: 15px;
+}
+
+.div-resume-cv, .other-information {
+    display: inline-block;
+    width: 48%;
+    height: 280px;
+    padding: 15px;
+}
+
+.other-information {
+    float: right;
+}
+

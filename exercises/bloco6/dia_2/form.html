@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="div-content">
+        <form id="main-form" action="">
+            <fieldset class="fieldset">
+                <legend>Informações Pessoais</legend>
+                <label for="input-name" class="label">
+                    Nome Completo
+                    <input class="input" type="text" name="input-full-name" id="input-name" maxlength="40" required>
+                </label>
+                <label for="input-email" class="label">
+                    E-mail
+                    <input class="input" type="text" name="input-email" id="input-email" maxlength="50" required>
+                </label>
+                <label for="input-cpf" class="label">
+                    Cpf
+                    <input class="input" type="text" name="input-cpf" id="input-cpf" maxlength="11" required>
+                </label>
+                <label for="input-adress" class="label">
+                    Endereço
+                    <input class="input" type="text" name="input-adress" id="input-adress" maxlength="200" required>
+                </label>
+                <label for="input-city" class="label">
+                    Cidade
+                    <input class="input" type="text" name="input-city" id="input-city" maxlength="28" required>
+                </label>
+                <label for="select-state" class="label">
+                    Estado
+                    <select class="input" name="select-state" id="select-state" required>
+                        <option disabled selected value>Selecione seu estado</option>
+                    </select>
+                </label>
+                <label class="label" for="input-home">Tipo de Moradia</label>
+                <input class="input" type="radio" name="input-home" id="input-home" value="Casa">
+                <label for="input-home">Casa</label>
+                <input class="input" type="radio" name="input-home" id="input-apartment" value="Apartamento">
+                <label for="input-apartment">Apartamento</label>
+            </fieldset>
+            <div class="div-resume-cv">
+                <fieldset class="fildset">
+                    <legend>Informações sobre seu ultimo emprego</legend>
+                    <label class="label" for="resume-cv">
+                        Resumo do curriculo
+                        <textarea class="resume-cv" name="resume-cv" id="resume-cv" cols="30" rows="10" maxlength="1000"
+                            required></textarea>
+                    </label>
+            </div>
+            <div class="div-resume-cv other-information">
+                <label for="input-office" class="label">
+                    Cargo
+                    <input class="input" type="text" name="input-office" id="input-office" maxlength="40" required>
+                </label>
+                <label for="input-description" class="label">
+                    Descrição
+                    <input class="input" type="text" name="input-description" id="input-description" maxlength="500"
+                        required>
+                </label>
+                <label for="input-date" class="label">
+                    Data
+                    <input class="input" type="text" name="input-date" id="input-date" required>
+                </label>
+            </div>
+            </fieldset>
+            <button class="button-submit" type="submit">Enviar</button>
+            <button class="button-clear">Limpar Formulario</button>
+            <div id="div-result"></div>
+        </form>
+    </div>
+    </fieldset>
+    <script src="script.js"></script>
+</body>
+
+</html>

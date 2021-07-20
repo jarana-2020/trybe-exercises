@@ -2,7 +2,8 @@ body {
 
 }
 h1 {
-
+    font-size: 1.8em;
+    margin: .9em 0 0 0;
 }
 h2 {
 
@@ -18,5 +19,4 @@ figure {
 
 p {
     font-size: 18px;
-    font-weight: 300px;
   }

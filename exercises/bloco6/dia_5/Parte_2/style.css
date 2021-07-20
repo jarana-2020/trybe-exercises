@@ -79,3 +79,17 @@ p strong {
         width: 200px;
     }
 }
+
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+    .card:nth-of-type(2) {
+        background-color: #0fa36b;
+        border-radius: 5px;
+        color: white;
+        display: flex;
+        flex-flow: row wrap;
+        height: 200px;
+        margin: 20px;
+        padding: 20px;
+        width: 200px;
+    }
+}

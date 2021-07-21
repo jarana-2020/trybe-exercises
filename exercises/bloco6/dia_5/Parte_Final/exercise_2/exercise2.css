@@ -111,5 +111,40 @@ p {
     .container {
         flex-wrap: nowrap;
     }
-    /* TODO */
+
+    header p {
+        font-size: 55px;
+        margin: 20px 0 30px 0;
+    }
+
+    header nav ul {
+        justify-content: space-between;
+    }
+
+    header nav ul li {
+        font-size: 25px;
+    
+    }
+
+    .aside-one ul li, .aside-two ul li {
+        margin-bottom: 10px;
+        font-size: 22px;
+    }
+
+    .aside-one h2 , .aside-two h2 {
+        font-size: xx-large;
+    }
+
+    .main-content h1 {
+        font-size: 40px;
+        margin-top: 40px;
+    }
+
+    p {
+        padding: 0 10px;
+        line-height: 2.0em;
+        margin: 10px 40px;
+        font-size: 25px;
+    }
+
 }

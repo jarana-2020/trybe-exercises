@@ -1,62 +1,115 @@
 .container {
     display: flex;
-  }
-  
-  p {
+}
+
+p {
     padding: 20px;
-  }
-  
-  /* TODO */
-  
-  @media screen and (max-width: 600px) {
+}
+
+/* TODO */
+
+@media screen and (max-width: 600px) {
     body {
-      background-color: lightcoral;
-      font-family: sans-serif;
-      margin: 2%;
+        background-color: lightcoral;
+        font-family: sans-serif;
+        margin: 2% 4%;
+    }
+    header p {
+        font-size: xx-large;
+        text-align: center;
+        margin: 0;
+        margin-bottom: 10px;
     }
 
-    header p {
-        text-align: center;
-        font-size: xx-large;
+    header nav ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    header nav ul li {
+        margin-left: 10px;
+        margin-bottom: 5px;
     }
     .container {
-      flex-direction: column;
-
+        flex-direction: column;
     }
-
-  
     p {
-      padding: 0 5px;
-      line-height: 1.8em;
-      margin: 0 10;
+        padding: 0 5px;
+        line-height: 1.8em;
+        margin: 5 2;
     }
-  
     .main-content h1 {
         font-size: x-large;
     }
-  }
-  
-  @media screen and (min-width: 601px) {
-    body {
-      background-color: lightblue;
-    }
-  
-    .container {
-      flex-wrap: wrap;
-    }
-  
-    /* TODO */
-  }
-  
-  @media screen and (min-width: 1000px) {
-    body {
-      background-color: lightgreen;
-    }
-  
-    .container {
-      flex-wrap: nowrap;
-    }
-  
-    /* TODO */
-  }
+}
 
+@media screen and (min-width: 601px) {
+    body {
+        background-color: lightblue;
+        margin: 1% 2%;
+    }
+    header p {
+        text-align: center;
+        font-size: xx-large;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+    .container {
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    header nav ul {
+        margin: 0;
+        margin-bottom: 20px;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    header nav ul li {
+        list-style-type: none;
+        font-size: 20px;
+    
+    }
+
+
+    .aside-one {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .aside-one ul {
+        margin: 0;
+    }
+
+    .aside-one ul li, .aside-two ul li {
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+
+    p {
+        padding: 0 10px;
+        line-height: 1.8em;
+        margin: 10px 30px;
+        font-size: 20px;
+    }
+
+    .main-content h1 {
+        font-size: xx-large;
+        text-align: center;
+    }
+
+    /* TODO */
+}
+
+@media screen and (min-width: 1000px) {
+    body {
+        background-color: lightgreen;
+    }
+    .container {
+        flex-wrap: nowrap;
+    }
+    /* TODO */
+}

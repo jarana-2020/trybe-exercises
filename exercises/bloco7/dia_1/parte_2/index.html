@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btn-count">Count</button>
+    <p id="counter">0</p>
+</body>
+<script>
+    let count = 0;
+    let getP = document.getElementById('counter');
+    let getButton = document.getElementById('btn-count');
+    document.getElementById('btn-count').addEventListener('click', () => getP.innerHTML = count += 1);
+</script>
+</html>

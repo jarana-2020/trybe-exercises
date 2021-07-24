@@ -68,7 +68,7 @@ const sumStudents2 = (obj) => {
     }
     return total
 };
-console.log(sumStudents2(allLessons)); 
+console.log(sumStudents2(allLessons));
 
 // Crie uma função que obtenha o valor da chave de acordo com a sua posição no objeto. Por exemplo:
 // Copiar
@@ -76,5 +76,22 @@ console.log(sumStudents2(allLessons));
 // Output: 'Matématica'
 
 const getValueKey = (obj, index) => Object.values(obj)[index];
-console.log(getValueKey(lesson1,0));
+console.log(getValueKey(lesson1, 0));
 
+// Crie uma função que verifique se o par (chave / valor) existe na função. 
+// Essa função deve possuir três parâmetros, sendo eles: o objeto, o nome da chave e o valor da chave. Exemplo:
+// console.log(verifyPair(lesson3, 'turno', 'noite'));
+//  Output: true,
+// console.log(verifyPair(lesson3, 'materia', 'Maria Clara'));
+//  Output: false
+
+const verifyPair = (obj, key, value) => {
+    let array = Object.entries(obj);
+    let find = false;
+
+    for (let index in array) {
+        if (array[index][0] === key && array[index][1] === value) find = true;
+    }
+    return find;
+};
+console.log(verifyPair(lesson2, 'professor', 'Julio'));

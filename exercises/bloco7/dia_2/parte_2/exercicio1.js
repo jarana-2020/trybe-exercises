@@ -3,20 +3,20 @@ const lesson1 = {
     numeroEstudantes: 20,
     professor: 'Maria Clara',
     turno: 'manhã',
-  };
-  
-  const lesson2 = {
+};
+
+const lesson2 = {
     materia: 'História',
     numeroEstudantes: 20,
     professor: 'Carlos',
-  };
-  
-  const lesson3 = {
+};
+
+const lesson3 = {
     materia: 'Matemática',
     numeroEstudantes: 10,
     professor: 'Maria Clara',
     turno: 'noite',
-  };
+};
 
 //   Crie uma função para adicionar o turno da manhã na lesson2 . Essa função deve possuir três parâmetros, sendo eles: o objeto a ser modificado,
 //   a chave que deverá ser adicionada e o valor dela.
@@ -28,7 +28,7 @@ const addShift = (obj, key, value) => {
 // Crie uma função para listar as keys de um objeto. Essa função deve receber um objeto como parâmetro.
 
 const showkeys = (obj) => {
-   return Object.keys(obj);
+    return Object.keys(obj);
 
 }
 console.log(showkeys(lesson3));
@@ -36,7 +36,7 @@ console.log(showkeys(lesson3));
 // Crie uma função para mostrar o tamanho de um objeto.
 
 const sizeObject = (obj) => {
-    
+
     return Object.keys(obj).length;
 }
 
@@ -51,5 +51,21 @@ console.log(showValues(lesson3));
 // Cada chave desse novo objeto será uma aula, sendo essas chaves: lesson1 , lesson2 e lesson3 . 
 // Ao executar o comando console.log(allLessons) , a saída deverá ser a seguinte:
 
-const allLessons = Object.assign({},{lesson1, lesson2, lesson3});
+const allLessons = Object.assign({}, { lesson1, lesson2, lesson3 });
 console.log(allLessons);
+
+// Usando o objeto criado no exercício 5, crie uma função que retorne o número total de estudantes em todas as aulas.
+
+const sumStudents = () => allLessons.lesson1.numeroEstudantes + allLessons.lesson2.numeroEstudantes + allLessons.lesson3.numeroEstudantes;
+console.log(sumStudents());
+
+const sumStudents2 = (obj) => {
+    const keys = Object.keys(obj);
+    let total = 0;
+    for (let index = 0; index < keys.length; index += 1) {
+        const currentValue = keys[index];
+        total += (obj[currentValue].numeroEstudantes);
+    }
+    return total
+};
+console.log(sumStudents2(allLessons)); 

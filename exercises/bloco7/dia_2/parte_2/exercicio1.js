@@ -69,3 +69,12 @@ const sumStudents2 = (obj) => {
     return total
 };
 console.log(sumStudents2(allLessons)); 
+
+// Crie uma função que obtenha o valor da chave de acordo com a sua posição no objeto. Por exemplo:
+// Copiar
+// console.log(getValueByNumber(lesson1, 0));
+// Output: 'Matématica'
+
+const getValueKey = (obj, index) => Object.values(obj)[index];
+console.log(getValueKey(lesson1,0));
+

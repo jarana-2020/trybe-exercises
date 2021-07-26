@@ -15,4 +15,13 @@ function sum(a, b) {
   return a + b;
 }
 
-// implemente seus testes aqui
+const expected = sum(4, 5);
+const expected0 = sum(0, 0);
+assert.strictEqual(expected, 9, '4 + 5 é igual a nove');
+assert.strictEqual(expected0, 0, '0 + 0 é igual a 0');
+assert.throws(() => {
+    sum(4, '5');
+});
+assert.throws(() => {
+    sum(4, '5');
+},/^Error: parameters must be numbers$/);

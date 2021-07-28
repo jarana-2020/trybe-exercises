@@ -21,3 +21,18 @@ const newEmployees = (callback) => {
 };
 
 console.log(newEmployees(person));
+
+
+// 2 - Desenvolva uma HOF que retorna o resultado de um sorteio. Esta HOF irá gerar um número aleatório entre 1 e 5 
+// recebendo como parâmetros o número apostado e uma função que checa se o número apostado é igual ao número sorteado.
+//  O retorno da sua HOF deve ser uma string (Ex: "Tente novamente" ou "Parabéns você ganhou").
+
+const prizeDraw = (num, callback) => {
+    const drawnNumber = Math.floor(Math.random() * 6);
+    return callback(num, drawnNumber) ? "Parabéns você ganhou" : "Tente novamente";
+    
+}
+
+const verifyNumbers = (myNumber, number) => myNumber === number;
+
+console.log(prizeDraw(4, verifyNumbers));

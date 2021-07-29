@@ -36,3 +36,61 @@ const prizeDraw = (num, callback) => {
 const verifyNumbers = (myNumber, number) => myNumber === number;
 
 console.log(prizeDraw(4, verifyNumbers));
+
+// 3 - Crie uma HOF que receberá três parâmetros. O primeiro será um array de respostas corretas (Gabarito), o segundo será um array de respostas 
+// a serem verificadas (respostas da pessoa estudante) e o terceiro é uma função que checa se as respostas estão corretas e faz a contagem 
+// da pontuação final recebida pela pessoa estudante. Ao final a HOF deve retornar o total da contagem de respostas certas.
+// Quando a resposta for correta a contagem sobe 1 ponto, quando for incorreta desce 0.5 pontos, e quando não houver resposta ("N.A") não altera-se a contagem.
+// Copiar
+
+const RIGHT_ANSWERS = ['A', 'C', 'B', 'D', 'A', 'A', 'D', 'A', 'D', 'C'];
+const STUDENT_ANSWERS = ['A', 'N.A', 'B', 'D', 'A', 'C', 'N.A', 'A', 'D', 'B'];
+
+const resultAnswers = (rightAnswers, studentAnswers, callback) => {
+  let result = 0;
+  for (let index in rightAnswers) {
+    const valueReturn = callback(rightAnswers[index],studentAnswers[index]);
+    result += valueReturn;
+  }
+  return `Resultado: ${result} respostas corretas`;
+}
+
+console.log(resultAnswers(RIGHT_ANSWERS, STUDENT_ANSWERS, (rAnswer, sAnswer) => {
+  if (rAnswer === sAnswer) {
+    return 1;
+  } if (sAnswer === 'N.A') {
+    return 0;
+  }
+  return -0.5;
+
+}))
+
+
+const mage = {
+  healthPoints: 130,
+  intelligence: 45,
+  mana: 125,
+  damage: undefined,
+};
+
+const warrior = {
+  healthPoints: 200,
+  strength: 30,
+  weaponDmg: 2,
+  damage: undefined,
+};
+
+const dragon = {
+  healthPoints: 350,
+  strength: 50,
+  damage: undefined,
+};
+
+const battleMembers = { mage, warrior, dragon };
+
+const dragonAttack = (dragon) => {
+    const minDmg = 15;
+    const { strength } = dragon;
+    const dragonDmg = Math.floor((Math.random() * (strength - minDmg + 1) + minDmg));
+    return dragonDmg;
+  };

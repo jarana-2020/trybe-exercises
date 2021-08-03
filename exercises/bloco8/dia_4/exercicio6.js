@@ -20,12 +20,10 @@ function studentAverage() {
     return newArray;
 }
 
-console.log(studentAverage());
+const expected = [
+  { name: 'Pedro Henrique', average: 7.8 },
+  { name: 'Miguel', average: 9.2 },
+  { name: 'Maria Clara', average: 8.8 },
+];
 
-// const expected = [
-//   { name: 'Pedro Henrique', average: 7.8 },
-//   { name: 'Miguel', average: 9.2 },
-//   { name: 'Maria Clara', average: 8.8 },
-// ];
-
-// assert.deepStrictEqual(studentAverage(), expected);
+assert.deepStrictEqual(studentAverage(), expected);

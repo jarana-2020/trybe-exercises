@@ -12,7 +12,10 @@
   "license": "ISC",
   "devDependencies": {
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-trybe-fundamentals": "^1.1.1",
-    "jest": "^27.0.6"
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2"
   }
 }

@@ -1,0 +1,1 @@
+const {uppercase} = require('../src/exercicio1');

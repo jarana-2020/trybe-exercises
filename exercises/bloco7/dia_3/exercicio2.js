@@ -16,11 +16,5 @@ function myRemove(arr, item) {
   return newArr;
 }
 
-assert.deepStrictEqual(myRemove([1, 2, 3, 4], 3),[1, 2, 4]);
-assert.notDeepStrictEqual(myRemove([1, 2, 3, 4], 3), [1, 2, 3, 4]);
-
-const newArray = [8, 9, 10, 11];
-myRemove(newArray, 9);
-assert.deepStrictEqual(newArray, [8, 9, 10, 11]);
-assert.deepStrictEqual(myRemove([1, 2, 3, 5], 3),[1, 2, 3, 4]);
+module.exports = myRemove;
 

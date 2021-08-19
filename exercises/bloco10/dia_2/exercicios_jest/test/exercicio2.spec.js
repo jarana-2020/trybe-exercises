@@ -1,4 +1,4 @@
-const { findUserById, getUserName } = require('../src/exercicio2');
+const { getUserName } = require('../src/exercicio2');
 
 describe('findUserById', () => {
   it('When the user exists', () => expect(getUserName(1))

@@ -1,0 +1,1 @@
+const { getUserName } = require('../src/exercicio3');

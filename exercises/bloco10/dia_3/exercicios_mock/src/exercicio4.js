@@ -1,5 +1,5 @@
 function wordUpperCase(string) {
-  return string.toUppercase();
+  return string.toUpperCase();
 }
 
 function firstCharacter(string) {

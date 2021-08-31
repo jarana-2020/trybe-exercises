@@ -8,7 +8,7 @@ function getRepos(url) {
 
 async function getNames() {
   const listNames = await getRepos('https://api.github.com/orgs/tryber/repos');
-  return listNames;
+  console.log(listNames[0]);
 }
 getNames();
 module.exports = getRepos;

@@ -19,15 +19,20 @@ class App extends React.Component {
   }
   
   handleClick1() {
-    console.log(this);
-    console.log('Clicou 1');
+    this.setState({
+      cliquesBotao1: 1
+    })
   }
 
   handleClick2() {
-    console.log('Clicou 2');
+    this.setState({
+      cliquesBotao2: 1
+    })
   }
   handleClick3(){
-    console.log('Clicou 3');
+    this.setState({
+      cliquesBotao3: 1
+    })
   }
 
   render() {

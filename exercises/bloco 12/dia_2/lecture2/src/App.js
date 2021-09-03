@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import Button from './Button';
 
 const handleClick1 = () => {
   console.log('Clicou 1');
@@ -16,7 +17,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-          <button onClick= {handleClick1}>Button 1</button>
+          <Button>Button 1</Button>
           <button onClick= {handleClick2}>Button 2</button>
           <button onClick= {handleClick3}>Button 3</button>
       </div>

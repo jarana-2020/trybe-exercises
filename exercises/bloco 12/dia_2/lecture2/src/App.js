@@ -6,6 +6,13 @@ class App extends React.Component {
 
   constructor() {
     super()
+
+    this.state = {
+      cliquesBotao1: 0,
+      cliquesBotao2: 0,
+      cliquesBotao3: 0,
+    }
+
     this.handleClick1 = this.handleClick1.bind(this);
     this.handleClick2 = this.handleClick2.bind(this);
     this.handleClick3 = this.handleClick3.bind(this);

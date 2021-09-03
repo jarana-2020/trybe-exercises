@@ -2,24 +2,33 @@ import './App.css';
 import React from 'react';
 import Button from './Button';
 
-const handleClick1 = () => {
-  console.log('Clicou 1');
-}
-const handleClick2 = () => {
-  console.log('Clicou 2');
-}
-const handleClick3 = () => {
-  console.log('Clicou 3');
-}
-
 class App extends React.Component {
+
+  constructor() {
+    super()
+    this.handleClick1 = this.handleClick1.bind(this);
+    this.handleClick2 = this.handleClick2.bind(this);
+    this.handleClick3 = this.handleClick3.bind(this);
+  }
   
+  handleClick1() {
+    console.log(this);
+    console.log('Clicou 1');
+  }
+
+  handleClick2() {
+    console.log('Clicou 2');
+  }
+  handleClick3(){
+    console.log('Clicou 3');
+  }
+
   render() {
     return (
       <div>
-          <Button onClick= {handleClick1}>Button 1</Button>
-          <Button onClick= {handleClick2}>Button 2</Button>
-          <Button onClick= {handleClick3}>Button 3</Button>
+          <Button onClick= {this.handleClick1}>Button 1</Button>
+          <Button onClick= {this.handleClick2}>Button 2</Button>
+          <Button onClick= {this.handleClick3}>Button 3</Button>
       </div>
       
     )

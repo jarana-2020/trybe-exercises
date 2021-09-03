@@ -19,20 +19,20 @@ class App extends React.Component {
   }
   
   handleClick1() {
-    this.setState({
-      cliquesBotao1: 1
-    })
+    this.setState((state) => ({
+      cliquesBotao1: state.cliquesBotao1 + 1,
+    }))
   }
 
   handleClick2() {
-    this.setState({
-      cliquesBotao2: 1
-    })
+    this.setState((state) => ({
+      cliquesBotao2: state.cliquesBotao2 + 1,
+    }))
   }
   handleClick3(){
-    this.setState({
-      cliquesBotao3: 1
-    })
+   this.setState((state) => ({
+     cliquesBotao3: state.cliquesBotao3 + 1,
+   }))
   }
 
   render() {

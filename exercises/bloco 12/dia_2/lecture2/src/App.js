@@ -17,9 +17,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-          <Button>Button 1</Button>
-          <button onClick= {handleClick2}>Button 2</button>
-          <button onClick= {handleClick3}>Button 3</button>
+          <Button onClick= {handleClick1}>Button 1</Button>
+          <Button onClick= {handleClick2}>Button 2</Button>
+          <Button onClick= {handleClick3}>Button 3</Button>
       </div>
       
     )

@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-// import Button from './Button';
+import Button from './Button';
 
 class App extends React.Component {
 
@@ -22,23 +22,32 @@ class App extends React.Component {
     return (num % 2 === 0) ? 'green' : 'white';
   }
   
-  handleClick1() {
+  handleClick1(event, num) {
     this.setState((state) => ({
       cliquesBotao1: state.cliquesBotao1 + 1,
-    }))
+    }));
+    (num % 2 === 0) 
+    ? event.target.style.backgroundColor = 'green' 
+    : event.target.style.backgroundColor = 'white'
     console.log(this.getColor(this.state.cliquesBotao1));
   }
 
-  handleClick2() {
+  handleClick2(event, num) {
     this.setState((state) => ({
       cliquesBotao2: state.cliquesBotao2 + 1,
-    }))
+    }));
+    (num % 2 === 0) 
+    ? event.target.style.backgroundColor = 'green' 
+    : event.target.style.backgroundColor = 'white'
     console.log(this.getColor(this.state.cliquesBotao2));
   }
-  handleClick3(){
+  handleClick3(event, num){
    this.setState((state) => ({
      cliquesBotao3: state.cliquesBotao3 + 1,
-   }))
+   }));
+   (num % 2 === 0) 
+   ? event.target.style.backgroundColor = 'green' 
+   : event.target.style.backgroundColor = 'white'
    console.log(this.getColor(this.state.cliquesBotao3));
   }
 
@@ -48,12 +57,9 @@ class App extends React.Component {
     const {cliquesBotao1, cliquesBotao2, cliquesBotao3} = this.state;
     return (
       <div>
-          <button onClick= {()=> this.handleClick1()} style={{backgroundColor: this.getColor(cliquesBotao1)}}>Button 1</button>
-          {/* <Button onClick= {()=> this.handleClick1()}>Button 1</Button> */}
-          <button onClick= {()=> this.handleClick2()} style={{backgroundColor: this.getColor(cliquesBotao2)}}>Button 2</button>
-          {/* <Button onClick= {this.handleClick2}>Button 2</Button> */}
-          <button onClick= {()=> this.handleClick3()} style={{backgroundColor: this.getColor(cliquesBotao3)}}>Button 3</button>
-          {/* <Button onClick= {this.handleClick3}>Button 3</Button> */}
+          <Button onClick= {(event)=> this.handleClick1(event, cliquesBotao1 )} >Button 1</Button>
+          <Button onClick= {(event)=> this.handleClick2(event, cliquesBotao2 )} >Button 2</Button>
+          <Button onClick= {(event)=> this.handleClick3(event, cliquesBotao3 )} >Button 3</Button>
       </div>
       
     )

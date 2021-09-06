@@ -25,7 +25,7 @@ class PersonalInformation extends React.Component {
                     <label>
                         Nome:
                         <input id='name' name='name' 
-                           type='text' value={this.state.name} 
+                           type='text' value={this.state.name.toUpperCase()} 
                            maxLength='40' required='true'
                            onChange={this.handleChange}
                          >

@@ -13,17 +13,32 @@ class Form extends React.Component {
         email: '',
         opiniao: '',
         confirma: false,
+        formularioComErros: false,
       }
 
       this.handleChange = this.handleChange.bind(this)
+      this.handleErrors = this.handleErrors.bind(this)
+    }
+
+    handleErrors() {
+      const { name, select } = this.state;
+
+      const errors = [
+        !name.length,
+        !select.length,
+      ];
+
+      const formFilled = errors.some((error) => error === true);
+      
+      this.setState({ formularioComErros: formFilled })
     }
 
     handleChange({target}) {
       const {name} = target;
       const value = target.type === 'checkbox' ? target.checked : target.value
-      this.setState({[name]: value})
-    }
-
+      this.setState({[name]: value,
+      }, () => {this.handleErrors()});
+    };
 
   render() {
     return (
@@ -37,7 +52,7 @@ class Form extends React.Component {
                 defaultValue= '' />
           </div>
           <div>
-            <Name handleChange={this.handleChange} />
+            <Name handleChange={this.handleChange} value= {this.state.name} />
           </div>
           <div>
             <label className='label' htmlFor='email'>E-mail:</label>

@@ -8,10 +8,10 @@ class Name extends React.Component {
             <label className='label'>
               Nome completo:
               <input 
-              className='input' 
-              id='name' value={value} 
-              onChange={handleChange} name='name' 
-              type='text' placeholder='Informe seu nome'
+                className='input' 
+                id='name' value={value} 
+                onChange={handleChange} name='name' 
+                type='text' placeholder='Informe seu nome'
               /> 
               { (value.length <= 0) ? 'Nome invalido' : 'ok'}
             </label>

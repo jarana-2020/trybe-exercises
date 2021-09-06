@@ -76,7 +76,7 @@ class Form extends React.Component {
               </label>
           </div>
           <div>
-            <label className='label-file'>
+            <label className='label'>
               Selecione o Arquivo  
               <input 
                 type='file'
@@ -84,6 +84,27 @@ class Form extends React.Component {
                 name='input-file'>
               </input>
             </label>
+          </div>
+          <div>
+            <fieldset className='fieldset'>
+                <legend>Time do coração:</legend>
+                <label className='label'>
+                  São Paulo
+                  <input 
+                    type='radio' id='radio'
+                    name='radio' className='input'
+                    value='São Paulo'>
+                  </input>
+                </label>
+                <label className='label'>
+                  Palmeiras
+                  <input 
+                    type='radio' id='radio'
+                    name='radio' className='input'
+                    value='Palmeiras'>
+                  </input>
+                </label>
+            </fieldset>
           </div>
         </form>
       </div>

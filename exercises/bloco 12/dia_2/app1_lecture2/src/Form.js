@@ -12,11 +12,12 @@ class Form extends React.Component {
         opiniao: '',
       }
 
-      this.handleName = this.handleSelect.bind(this)
+      this.handleChange = this.handleChange.bind(this)
     }
 
-    handleSelect(event) {
-      this.setState({select: event.target.value})
+    handleChange({target}) {
+        const {name, value} = target;
+      this.setState({[name]: value})
     }
 
 
@@ -27,7 +28,10 @@ class Form extends React.Component {
         <form className='form'>
           <div>
           <label className='label' htmlFor='pais'>Selecione seu pais</label>
-          <select className='input' name= 'select' id='pais' value={this.state.select} onChange={this.handleSelect} defaultValue=''>
+          <select 
+            className='input' name= 'select'
+            id='pais' value={this.state.select}
+            onChange={this.handleChange} defaultValue=''>
             <option value=''>Selecione seu Pais</option>
             <option value='Brasil'>Brasil</option>
             <option value='Argentina'>Argentina</option>
@@ -36,15 +40,28 @@ class Form extends React.Component {
           </div>
           <div>
             <label className='label' htmlFor='name'>Nome completo:</label>
-            <input className='input' id='name' name='name' type='text' placeholder='Informe seu nome'/> 
+            <input 
+              className='input' 
+              id='name' value={this.state.name} 
+              onChange={this.handleChange} name='name' 
+              type='text' placeholder='Informe seu nome'
+            /> 
           </div>
           <div>
             <label className='label' htmlFor='email'>E-mail:</label>
-            <input className='input' id='email' name='email' type='email' placeholder='Informe seu e-mail'/> 
+            <input className='input' id='email'
+              name='email' type='email'
+              value={this.state.email}
+              onChange={this.handleChange}
+              placeholder='Informe seu e-mail'/> 
           </div>
           <div className='div-text-area'>
             <label className='label' htmlFor='opiniao'>Deixe sua opinião</label>
-            <textarea className='input-text-area' id='opiniao' name='opiniao' rows='10' cols='33'/>
+            <textarea className='input-text-area'
+              id='opiniao' name='opiniao'
+              rows='10' cols='33'
+              value={this.state.opiniao}
+              onChange={this.handleChange}/>
           </div>
         </form>
       </div>

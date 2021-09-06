@@ -1,8 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types'
 class PersonalInformation extends React.Component {
+    constructor() {
+        super();
+
+        this.state = {
+            name: '',
+        }
+        
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleChange({target}) {
+        const { name } = target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        this.setState({
+            [name]: value,
+        })
+    }
     render() {
-        const { nameValue, handleChange } = this.props
         return(
             <form>
                 <fieldset>
@@ -10,9 +25,9 @@ class PersonalInformation extends React.Component {
                     <label>
                         Nome:
                         <input id='name' name='name' 
-                           type='text' value={nameValue} 
+                           type='text' value={this.state.name} 
                            maxLength='40' required='true'
-                           onChange={handleChange}
+                           onChange={this.handleChange}
                          >
                         </input>
                     </label>
@@ -23,8 +38,4 @@ class PersonalInformation extends React.Component {
 }
 
 
-PersonalInformation.propTypes = {
-    nameValue: PropTypes.string.isRequired,
-    handleChange: PropTypes.func.isRequired,
-}
 export default PersonalInformation;

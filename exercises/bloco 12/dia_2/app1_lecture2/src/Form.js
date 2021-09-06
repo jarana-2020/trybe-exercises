@@ -10,13 +10,15 @@ class Form extends React.Component {
         select: '',
         email: '',
         opiniao: '',
+        confirma: false,
       }
 
       this.handleChange = this.handleChange.bind(this)
     }
 
     handleChange({target}) {
-        const {name, value} = target;
+      const {name} = target;
+      const value = target.type === 'checkbox' ? target.checked : target.value
       this.setState({[name]: value})
     }
 
@@ -62,6 +64,16 @@ class Form extends React.Component {
               rows='10' cols='33'
               value={this.state.opiniao}
               onChange={this.handleChange}/>
+          </div>
+          <div>
+              <label className='label'>
+                Confirma sua Participação?
+                <input 
+                  type= 'checkbox' className='input'
+                  name='confirma' checked={this.state.confirma}
+                  onChange={this.handleChange}>
+                </input>
+              </label>
           </div>
         </form>
       </div>

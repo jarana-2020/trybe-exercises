@@ -10,9 +10,9 @@ class PersonalInformation extends React.Component {
                     <label>
                         Nome:
                         <input id='name' name='name' 
-                         type='text' value={nameValue} 
-                         maxLength='40' required='true'
-                         onChange={handleChange}
+                           type='text' value={nameValue} 
+                           maxLength='40' required='true'
+                           onChange={handleChange}
                          >
                         </input>
                     </label>

@@ -75,6 +75,16 @@ class Form extends React.Component {
                 </input>
               </label>
           </div>
+          <div>
+            <label className='label-file'>
+              Selecione o Arquivo  
+              <input 
+                type='file'
+                className='input'
+                name='input-file'>
+              </input>
+            </label>
+          </div>
         </form>
       </div>
     )

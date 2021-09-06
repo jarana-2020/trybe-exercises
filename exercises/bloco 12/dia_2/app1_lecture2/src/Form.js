@@ -1,4 +1,6 @@
 import React from 'react';
+import Name from './Input.name';
+import Select from './Select';
 
 
 class Form extends React.Component {
@@ -29,25 +31,13 @@ class Form extends React.Component {
         <h1>Formulario Bloco 12 dia 2</h1>  
         <form className='form'>
           <div>
-          <label className='label' htmlFor='pais'>Selecione seu pais</label>
-          <select 
-            className='input' name= 'select'
-            id='pais' value={this.state.select}
-            onChange={this.handleChange} defaultValue=''>
-            <option value=''>Selecione seu Pais</option>
-            <option value='Brasil'>Brasil</option>
-            <option value='Argentina'>Argentina</option>
-            <option value='Chile'>Chile</option>
-          </select> 
+            <Select className='input' id='select'
+                name='select' value={this.state.select} 
+                handleChange={this.handleChange} 
+                defaultValue= '' />
           </div>
           <div>
-            <label className='label' htmlFor='name'>Nome completo:</label>
-            <input 
-              className='input' 
-              id='name' value={this.state.name} 
-              onChange={this.handleChange} name='name' 
-              type='text' placeholder='Informe seu nome'
-            /> 
+            <Name handleChange={this.handleChange} />
           </div>
           <div>
             <label className='label' htmlFor='email'>E-mail:</label>

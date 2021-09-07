@@ -10,7 +10,8 @@ class PersonalInformation extends React.Component {
             email: '',
             cpf: '',
             adress: '',
-            stateName: ''
+            stateName: '',
+            typeAdress: '',
         }
         
         this.handleChange = this.handleChange.bind(this)
@@ -62,11 +63,25 @@ class PersonalInformation extends React.Component {
                     </div>
                     <div className='container'>
                     <label>
-                           Estado:
+                           State:
                            <ComboboxStates id='stateName' className='stateName'
                            nameValue='stateName' value={this.state.stateName}
                            handleChange={this.handleChange} required={true}/>
                     </label>
+                    </div>
+                    <div className='container'>
+                       <label htmlFor='radio-home'>
+                           Home
+                           <input type='radio' className='radio-home'
+                            id='radio-home' required value='Home'
+                            name='typeAdress' onChange={this.handleChange}/>
+                       </label>
+                       <label htmlFor='radio-apartment'>
+                           Apartment
+                           <input type='radio' className='radio-home'
+                            id='radio-apatment' required value='Apartment'
+                            name='typeAdress' onChange={this.handleChange}/>
+                       </label>
                     </div>
                 </fieldset>
             </form>

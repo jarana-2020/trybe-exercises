@@ -1,10 +1,14 @@
 import React from 'react';
+import InputText from './Component.Text';
 class PersonalInformation extends React.Component {
     constructor() {
         super();
 
         this.state = {
             name: '',
+            email: '',
+            cpf: '',
+            adress: '',
         }
         
         this.handleChange = this.handleChange.bind(this)
@@ -22,15 +26,38 @@ class PersonalInformation extends React.Component {
             <form>
                 <fieldset>
                     <legend>Personal Information</legend>
+                    <div className='container'>
+                        <label>
+                           Name:
+                           <InputText id='name' nameValue='name' type='text'
+                           classValue= 'name' maxLength='40' required= {true}
+                           handleChange={this.handleChange} value={this.state.name.toUpperCase()} />
+                        </label>
+                    </div>
+                    <div className='container'>
                     <label>
-                        Nome:
-                        <input id='name' name='name' 
-                           type='text' value={this.state.name.toUpperCase()} 
-                           maxLength='40' required='true'
-                           onChange={this.handleChange}
-                         >
-                        </input>
+                           E-mail:
+                           <InputText id='email' nameValue='email' type='email'
+                           classValue= 'email' maxLength='50' required= {true}
+                           handleChange={this.handleChange} value={this.state.email} />
                     </label>
+                    </div>
+                    <div className='container'>
+                    <label>
+                           Cpf:
+                           <InputText id='cpf' nameValue='cpf' type='text'
+                           classValue= 'cpf' maxLength='11' required= {true}
+                           handleChange={this.handleChange} value={this.state.cpf} />
+                    </label>
+                    </div>
+                    <div className='container'>
+                    <label>
+                           Adress:
+                           <InputText id='adress' nameValue='adress' type='text'
+                           classValue= 'adress' required= {true}
+                           handleChange={this.handleChange} value={this.state.adress} />
+                    </label>
+                    </div>
                 </fieldset>
             </form>
         )

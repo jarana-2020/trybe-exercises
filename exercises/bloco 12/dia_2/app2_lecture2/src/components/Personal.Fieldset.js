@@ -1,4 +1,5 @@
 import React from 'react';
+import ComboboxStates from './Component.Combobox';
 import InputText from './Component.Text';
 class PersonalInformation extends React.Component {
     constructor() {
@@ -9,6 +10,7 @@ class PersonalInformation extends React.Component {
             email: '',
             cpf: '',
             adress: '',
+            stateName: ''
         }
         
         this.handleChange = this.handleChange.bind(this)
@@ -56,6 +58,14 @@ class PersonalInformation extends React.Component {
                            <InputText id='adress' nameValue='adress' type='text'
                            classValue= 'adress' required= {true}
                            handleChange={this.handleChange} value={this.state.adress} />
+                    </label>
+                    </div>
+                    <div className='container'>
+                    <label>
+                           Estado:
+                           <ComboboxStates id='stateName' className='stateName'
+                           nameValue='stateName' value={this.state.stateName}
+                           handleChange={this.handleChange} required={true}/>
                     </label>
                     </div>
                 </fieldset>

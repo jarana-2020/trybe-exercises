@@ -16,9 +16,18 @@ class App extends React.Component {
       resume: '',
       description: '',
       office: '',
+      enterMouse: false,
   }
   
-  this.handleChange = this.handleChange.bind(this)
+  this.handleChange = this.handleChange.bind(this);
+  this.mouseEnter = this.mouseEnter.bind(this);
+  }
+
+  mouseEnter() {
+    if (this.state.enterMouse === false) alert('Carefully fill in this information')
+    this.setState({
+      enterMouse: true,
+    })
   }
 
   handleChange({target}) {
@@ -41,7 +50,8 @@ class App extends React.Component {
           email={this.state.email} adress={this.state.adress}
           cpf={this.state.cpf} state={this.state.stateName}
           description={this.state.description} 
-          resume={this.state.resume} office={this.state.office}/>
+          resume={this.state.resume} office={this.state.office}
+          mouseEnter={this.mouseEnter}/>
       </main>
     );
   }  

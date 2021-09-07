@@ -2,7 +2,7 @@ import React from 'react';
 
 class LastJobInformation extends React.Component {
     render() {
-        const { resume, handleChange, description, office } = this.props;
+        const { resume, handleChange, description, office, mouseEnter } = this.props;
         return(
             <fieldset className='job-fieldset'>
                 <legend>Last Job informations</legend>
@@ -29,7 +29,7 @@ class LastJobInformation extends React.Component {
                          <textarea className='text-area' name='office'
                           id='office-description' value={office} maxLength='40'
                           wrap='true' required onChange={handleChange}
-                          cols='30' rows='10'/>
+                          cols='30' rows='10' onMouseEnter={ mouseEnter}/>
                       </label>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ import InputText from './Component.Text';
 import LastJobInformation from './Last.Job.Filedset';
 class PersonalInformation extends React.Component {
     render() {
-        const { handleChange, namePerson, email, cpf, adress, state, resume, description, office } = this.props
+        const { handleChange, namePerson, email, cpf, adress, state, resume, description, office, mouseEnter } = this.props
         return(
             <form>
                 <fieldset className='personal-fieldset'>
@@ -65,7 +65,7 @@ class PersonalInformation extends React.Component {
                     </div>
                 </fieldset>
                 <LastJobInformation resume={resume} handleChange={handleChange} 
-                  description={description} office={office} />
+                  description={description} office={office} mouseEnter={mouseEnter} />
             </form>
         )
     }

@@ -3,9 +3,9 @@ import ProTypes from 'prop-types';
 
 class InputText extends React.Component {
     render() {
-        const {type, nameValue, id, classValue, maxLength, required, handleChange, value} = this.props
+        const {type, name, id, classValue, maxLength, required, handleChange, value} = this.props
         return(
-            <input type={type} name={nameValue}
+            <input type={type} name={name}
               id={id} className={classValue}
               maxLength={maxLength} required={required}
               onChange={handleChange} value={value}>
@@ -15,7 +15,7 @@ class InputText extends React.Component {
 }
 
 InputText.propTypes = {
-    nameValue: ProTypes.string.isRequired,
+    name: ProTypes.string.isRequired,
     type: ProTypes.string.isRequired,
     id: ProTypes.string,
     classValue: ProTypes.string,

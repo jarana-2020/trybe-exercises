@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 class ComboboxStates extends React.Component {
     render() {
-        const { className, nameValue, required, id, handleChange, value  } =this.props;
+        const { className, name, required, id, handleChange, value  } =this.props;
         return(
             <select className={className} required={required}
-              name={nameValue} id={id} onChange={handleChange}
+              name={name} id={id} onChange={handleChange}
               value={value}>
               <option value=''>Selecione seu Estado</option>
               {states.map((state, index) => <option key={index} 
@@ -20,7 +20,7 @@ class ComboboxStates extends React.Component {
 ComboboxStates.propTypes = {
     className: PropTypes.string,
     require: PropTypes.bool,
-    nameValue: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     id: PropTypes.string,
     handleChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,

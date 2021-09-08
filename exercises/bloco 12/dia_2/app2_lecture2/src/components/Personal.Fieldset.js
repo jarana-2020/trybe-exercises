@@ -1,12 +1,10 @@
 import React from 'react';
 import ComboboxStates from './Component.Combobox';
 import InputText from './Component.Text';
-import LastJobInformation from './Last.Job.Filedset';
 class PersonalInformation extends React.Component {
     render() {
-        const { handleChange, namePerson, email, cpf, adress, state, resume, description, office, mouseEnter } = this.props
+        const { handleChange, namePerson, email, cpf, adress, state } = this.props
         return(
-            <form>
                 <fieldset className='personal-fieldset'>
                     <legend>Personal Information</legend>
                     <div className='container'>
@@ -64,9 +62,6 @@ class PersonalInformation extends React.Component {
                        </label>
                     </div>
                 </fieldset>
-                <LastJobInformation resume={resume} handleChange={handleChange} 
-                  description={description} office={office} mouseEnter={mouseEnter} />
-            </form>
         )
     }
 }

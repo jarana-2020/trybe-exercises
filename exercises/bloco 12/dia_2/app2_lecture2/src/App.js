@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import PersonalInformation from './components/Personal.Fieldset';
 import LastJobInformation from './components/Last.Job.Filedset';
+import DataConsolidated from './components/Consolidated.Data';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class App extends React.Component {
       description: '',
       office: '',
       enterMouse: false,
+      submited: false,
   }
   
   this.handleChange = this.handleChange.bind(this);
@@ -34,7 +36,8 @@ class App extends React.Component {
 
   handleChange({target}) {
     const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    let value = target.type === 'checkbox' ? target.checked : target.value;
+    if (name === 'name') value = value.toUpperCase();
     this.setState({
         [name]: value,
     });
@@ -42,6 +45,9 @@ class App extends React.Component {
 
   sendData (event) {
     event.preventDefault();
+    this.setState({
+      submited: true
+    });
   }
  
   render() {
@@ -53,7 +59,7 @@ class App extends React.Component {
         <form>
         <PersonalInformation 
           handleChange={this.handleChange} 
-          namePerson={this.state.name.toUpperCase()} 
+          namePerson={this.state.name} 
           email={this.state.email} adress={this.state.adress}
           cpf={this.state.cpf} state={this.state.stateName}
           description={this.state.description} 
@@ -64,9 +70,15 @@ class App extends React.Component {
             office={this.state.office} mouseEnter={this.mouseEnter}/>
           <div className='container'>
             <button type='submit' className='button-form'
-            id='submit' name='button-submit' onClick={ (event) => this.sendData(event)}>Submit</button>
+            id='submit' name='button-submit' 
+            onClick={ (event) => this.sendData(event)}>Submit</button>
           </div>  
         </form>
+        <DataConsolidated 
+          name={this.state.name} email={this.state.email}
+          cpf={this.state.cpf} adress={this.state.adress}
+          state={this.state.stateName} typeHome={this.state.typeAdress}
+          display={this.state.submited}/>
       </main>
     );
   }  

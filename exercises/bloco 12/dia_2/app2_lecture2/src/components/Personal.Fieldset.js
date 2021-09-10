@@ -3,7 +3,7 @@ import ComboboxStates from './Component.Combobox';
 import InputText from './Component.Text';
 class PersonalInformation extends React.Component {
     render() {
-        const { handleChange, namePerson, email, cpf, adress, state } = this.props
+        const { handleChange, namePerson, email, cpf, adress, state, checked } = this.props
         return(
                 <fieldset className='personal-fieldset'>
                     <legend>Personal Information</legend>

@@ -4,27 +4,31 @@ import PersonalInformation from './components/Personal.Fieldset';
 import LastJobInformation from './components/Last.Job.Filedset';
 import DataConsolidated from './components/Consolidated.Data';
 
+
+const initialValue = {
+  name: '',
+  email: '',
+  cpf: '',
+  adress: '',
+  stateName: '',
+  typeAdress: '',
+  resume: '',
+  description: '',
+  office: '',
+  enterMouse: false,
+  submited: false,
+}
 class App extends React.Component {
+
   constructor(props) {
     super(props);
 
-    this.state = {
-      name: '',
-      email: '',
-      cpf: '',
-      adress: '',
-      stateName: '',
-      typeAdress: '',
-      resume: '',
-      description: '',
-      office: '',
-      enterMouse: false,
-      submited: false,
-  }
+    this.state = initialValue;
   
   this.handleChange = this.handleChange.bind(this);
   this.mouseEnter = this.mouseEnter.bind(this);
   this.sendData = this.sendData.bind(this);
+  this.resetData = this.resetData.bind(this);
   }
 
   mouseEnter() {
@@ -49,6 +53,11 @@ class App extends React.Component {
       submited: true
     });
   }
+
+  resetData(event){
+    event.preventDefault();
+    this.setState(initialValue);
+  }
  
   render() {
     return (
@@ -70,8 +79,14 @@ class App extends React.Component {
             office={this.state.office} mouseEnter={this.mouseEnter}/>
           <div className='container'>
             <button type='submit' className='button-form'
-            id='submit' name='button-submit' 
-            onClick={ (event) => this.sendData(event)}>Submit</button>
+              id='submit' name='button-submit' 
+              onClick={ (event) => this.sendData(event)}>Submit
+            </button>
+            <button type='reset' className='button-form'
+              id='clear' name='button-clear'
+              onClick={this.resetData}>
+                Reset
+            </button>
           </div>  
         </form>
         <DataConsolidated 

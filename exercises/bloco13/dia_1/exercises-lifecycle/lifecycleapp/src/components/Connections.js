@@ -20,7 +20,9 @@ class Connections extends React.Component {
   }
 
   shouldComponentUpdate(_nextProps, { list }) {
+    const maxContactsNumber = 3;
 
+    return list.length <= maxContactsNumber;
   }
 
   componentDidUpdate(_prevProps, prevState) {

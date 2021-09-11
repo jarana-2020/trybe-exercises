@@ -24,7 +24,8 @@ class Profile extends React.Component {
   }
 
   componentWillUnmount() {
-
+    const alert = 'Você ocultou seu perfil';
+    alert();
   }
 
   changeDataJson(dataJson) {

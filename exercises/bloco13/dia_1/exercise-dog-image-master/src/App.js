@@ -1,30 +1,55 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={ logo } className="App-logo" alt="logo" />
-        <p>
-          Edit
-          <code>
-            src/App.js
-          </code>
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      imageDog: '',
+      loading: true,
+    };
+
+    this.fetchDog = this.fetchDog.bind(this);
+    this.renderDog = this.renderDog.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchDog();
+  }
+
+  async fetchDog() {
+    this.setState({ loading: true },
+      async () => {
+        const result = await fetch('https://dog.ceo/api/breeds/image/random');
+        const resultJson = await result.json();
+        const { message } = resultJson;
+        this.setState({
+          loading: false,
+          imageDog: message,
+        });
+      });
+  }
+
+  renderDog() {
+    const { imageDog } = this.state;
+    return (
+      <div>
+        <img src={ imageDog } alt="Dog" />
+        <button type="button" onClick={ this.fetchDog }>Add Dog</button>
+      </div>
+    );
+  }
+
+  render() {
+    const { loading } = this.state;
+    return (
+      <div>
+        <h1>Exercise Fetch Dogs</h1>
+        {loading ? 'Loading' : this.renderDog()}
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React from 'react';
 
 class Profile extends React.Component {
@@ -24,8 +25,7 @@ class Profile extends React.Component {
   }
 
   componentWillUnmount() {
-    const alert = 'Você ocultou seu perfil';
-    alert();
+    alert('Você ocultou seu perfil');
   }
 
   changeDataJson(dataJson) {

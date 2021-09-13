@@ -18,6 +18,11 @@ class App extends React.Component {
     this.fetchDog();
   }
 
+  shouldComponentUpdate(_nextProps, nextState) {
+    const result = !nextState.imageDog.includes('terrier');
+    return result;
+  }
+
   async fetchDog() {
     this.setState({ loading: true },
       async () => {

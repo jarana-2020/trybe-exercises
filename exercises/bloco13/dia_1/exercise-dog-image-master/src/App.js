@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-alert */
 import React from 'react';
 import './App.css';
 
@@ -21,6 +23,15 @@ class App extends React.Component {
   shouldComponentUpdate(_nextProps, nextState) {
     const result = !nextState.imageDog.includes('terrier');
     return result;
+  }
+
+  componentDidUpdate(_prevProps, prevState) {
+    const { imageDog } = this.state;
+    if (prevState.imageDog !== imageDog) {
+      localStorage.setItem('dogImage', imageDog);
+    }
+    const raca = imageDog.split('/')[4];
+    (raca) ? alert(raca) : null;
   }
 
   async fetchDog() {

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 /* eslint-disable no-alert */
 import React from 'react';
 import './App.css';

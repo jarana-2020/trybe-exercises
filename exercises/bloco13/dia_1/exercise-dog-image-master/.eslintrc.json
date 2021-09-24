@@ -1,0 +1,11 @@
+{
+    "extends": [
+        "trybe-frontend"
+    ],
+
+    "rules": { 
+        "allowShortCircuit": true, 
+        "allowTernary": true
+     }
+
+}

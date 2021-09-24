@@ -1,0 +1,27 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-left: 10px;
+}
+
+.input {
+  margin-bottom: 15px;
+  margin-left: 10px;
+}
+h1 {
+  text-align: center;
+}
+
+.input-text-area {
+  display: block;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+.fieldset {
+  width: 15%;
+  margin-left: 10px;
+}

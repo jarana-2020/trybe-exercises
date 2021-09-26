@@ -41,7 +41,7 @@ changeSaveEmail = (value) => {
           onClick={() => this.changeSaveEmail(email)}
           />
         <input type="button" id="btn-id" value="Voltar" />
-        <ValidEmail email={saveEmail}/>
+        <ValidEmail email={saveEmail} isSend={saveEmail}/>
       </div>
     )
   }

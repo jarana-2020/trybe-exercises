@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import { render } from '@testing-library/react';
+import ValidEmail from './ValidEmail';
 
 class App extends React.Component {
   constructor() {
@@ -40,7 +41,7 @@ changeSaveEmail = (value) => {
           onClick={() => this.changeSaveEmail(email)}
           />
         <input type="button" id="btn-id" value="Voltar" />
-        <h2 data-testid="id-email-user">{`Valor: ${saveEmail}`}</h2>
+        <ValidEmail email={saveEmail} isSend={saveEmail}/>
       </div>
     )
   }

@@ -1,5 +1,6 @@
 import { render, fireEvent } from '@testing-library/react';
 import App from './App';
+import ValidEmail from './ValidEmail';
 
 describe('Tela de inserção de e-mail', () => {
   it('Verifica se existe um input de email na tela', () => {
@@ -41,8 +42,40 @@ describe('Tela de inserção de e-mail', () => {
     expect(inputEmail).toHaveValue('')
     expect(h2Result.textContent).toBe('Valor: julioaranabr@yahoo.com.br')
   });
+
+  it('Verifica se o Email informado é valido', () => {
+    const EMAIL_USER = 'julioaranabr@yahoo.com.br'
+    const isSend = true
+    const {queryByText} = render(<ValidEmail email={EMAIL_USER} isSend={isSend} />)
+    const isValid = queryByText('Email Valido')
+    expect(isValid).toBeInTheDocument()
+  });
+
+  it('Verifica se o componente não aparece caso o e-mail esteja vazio', () => {
+   const {queryByText} = render(<ValidEmail email='' />)
+   const isInValidEmail = queryByText('Email Inválido')
+   const isValidEmail = queryByText('Email Valido')
+   expect(isInValidEmail).not.toBeInTheDocument()
+   expect(isValidEmail).not.toBeInTheDocument()
+  });
+
+  it('Verifica se o componente tem a cor verde caso o e-mail seja valido', () => {
+    const EMAIL_USER = 'julioaranabr@yahoo.com.br'
+    const {queryByText} = render(<ValidEmail email={EMAIL_USER} />)
+    const isValidEmail = queryByText('Email Valido')
+    expect(isValidEmail).toHaveAttribute('class', 'green-text')
+   });
+
+   it('Verifica se o componente tem a cor vermelha caso o e-mail seja invalido', () => {
+    const EMAIL_USER = 'julioaranabr@'
+    const {queryByText} = render(<ValidEmail email={EMAIL_USER} />)
+    const isInValidEmail = queryByText('Email Inválido')
+    expect(isInValidEmail).toHaveAttribute('class', 'red-text')
+   });
   
 })
+
+
 
 
 

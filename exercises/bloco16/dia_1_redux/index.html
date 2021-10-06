@@ -33,6 +33,14 @@
       <button id="next">Next color</button>
     </div>
     <script>
+      const btnPrevious = document.getElementById("previous");
+      btnPrevious.addEventListener('click', () => {
+          store.dispatch({type: "PREVIOUS_COLOR"})
+      })
+      const btnNext = document.getElementById("next");
+      btnNext.addEventListener('click', () => {
+          store.dispatch({type: "NEXT_COLOR"})
+      })
       const ESTADO_INICIAL = {
         colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
         index: 0,

@@ -38,7 +38,7 @@
 
       const meuPrimeiroReducer = (state = ESTADO_INICIAL_1, action) => {
         switch (action.type) {
-          case "ALTERAR PRIMEIRO NOME E SOBRENOME":
+          case "ALTERAR_PRIMEIRO_NOME_E_SOBRENOME":
             return {
               ...state,
               nome: action.nome,
@@ -51,7 +51,7 @@
 
       const meuSegundoReducer = (state = ESTADO_INICIAL_2, action) => {
         switch (action.type) {
-          case "ALTERAR SEGUNDO NOME E SOBRENOME":
+          case "ALTERAR_SEGUNDO_NOME_E_SOBRENOME":
             return {
               ...state,
               nome: action.nome,
@@ -62,7 +62,7 @@
         }
       };
 
-      const combineReducer = combineReducers({
+      const combineReducer = Redux.combineReducers({
           meuPrimeiroReducer,
           meuSegundoReducer,
       })
@@ -72,12 +72,12 @@
       window.onload = () => {
         setTimeout(() => {
           store.dispatch({
-            type: "ALTERAR PRIMEIRO NOME E SOBRENOME", 
+            type: "ALTERAR_PRIMEIRO_NOME_E_SOBRENOME", 
             nome: "Julio", 
             sobrenome: "Cesar"
         });
         store.dispatch({
-            type: "ALTERAR SEGUNDO NOME E SOBRENOME", 
+            type: "ALTERAR_SEGUNDO_NOME_E_SOBRENOME", 
             nome: "Doraci", 
             sobrenome: "Arana"
         });
@@ -86,6 +86,10 @@
 
       store.subscribe(() => {
         const {meuPrimeiroReducer, meuSegundoReducer} = store.getState();
+        document.getElementById("nome-1").innerHTML = meuPrimeiroReducer.nome;
+        document.getElementById("sobrenome-1").innerHTML = meuPrimeiroReducer.sobrenome;
+        document.getElementById("nome-2").innerHTML = meuSegundoReducer.nome;
+        document.getElementById("sobrenome-2").innerHTML = meuSegundoReducer.sobrenome;
       })
 
     </script>

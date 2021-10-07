@@ -68,6 +68,26 @@
       })
 
       const store = Redux.createStore(combineReducer);
+
+      window.onload = () => {
+        setTimeout(() => {
+          store.dispatch({
+            type: "ALTERAR PRIMEIRO NOME E SOBRENOME", 
+            nome: "Julio", 
+            sobrenome: "Cesar"
+        });
+        store.dispatch({
+            type: "ALTERAR SEGUNDO NOME E SOBRENOME", 
+            nome: "Doraci", 
+            sobrenome: "Arana"
+        });
+        }, 3000);
+      };
+
+      store.subscribe(() => {
+        const {meuPrimeiroReducer, meuSegundoReducer} = store.getState();
+      })
+
     </script>
   </body>
 </html>

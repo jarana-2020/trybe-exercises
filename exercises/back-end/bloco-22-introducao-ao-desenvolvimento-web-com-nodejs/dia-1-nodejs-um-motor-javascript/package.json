@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "imc": "node imc.js",
+    "velocidade": "node velocidade.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "julio cesar arana",

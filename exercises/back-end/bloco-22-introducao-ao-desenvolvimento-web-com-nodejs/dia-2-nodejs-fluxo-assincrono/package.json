@@ -6,7 +6,7 @@
   "scripts": {
     "exercicio1": "node exercise1.js",
     "exercicio3": "node exercise3.js",
-    "exercicio5": "node exercise5.js",
+    "exercicio5": "node exercise4.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "julio cesar arana",

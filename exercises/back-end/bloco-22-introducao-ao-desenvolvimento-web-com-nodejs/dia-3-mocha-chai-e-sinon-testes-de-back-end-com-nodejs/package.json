@@ -4,7 +4,7 @@
   "description": "testes unitarios",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests"
+    "test": "mocha tests.js"
   },
   "author": "julio cesar arana",
   "license": "ISC",

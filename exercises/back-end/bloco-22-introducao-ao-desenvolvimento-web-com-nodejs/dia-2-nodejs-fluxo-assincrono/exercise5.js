@@ -4,11 +4,13 @@ const arrayToFile = async() => {
 
   const strings = ['Finalmente', 'estou', 'usando', 'Promise.all', '!!!'];
 
-  const createFiles = strings.map((string, index) => {
+ const createFiles = strings.map((string, index) => {
     fs.writeFile(`./file${index + 1}.txt`,string)
   });
 
    await Promise.all(createFiles);
+
+  console.log('teste');
 
    const fileNames = [
      'file1.txt',

@@ -8,6 +8,7 @@
     "exercicio3": "node exercise3.js",
     "exercicio4": "node exercise4.js",
     "exercicio5": "node exercise5.js",
+    "exercicio6": "node exercise6.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "julio cesar arana",

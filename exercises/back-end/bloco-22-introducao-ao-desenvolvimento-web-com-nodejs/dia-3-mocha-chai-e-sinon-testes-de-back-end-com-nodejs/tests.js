@@ -23,3 +23,10 @@ describe('Quando o parametro for 0', () => {
     expect(answer).to.be.equals('neutro');
   })
 });
+
+describe('Quando o parametro não for Number', () => {
+  it('retorna "o valor deve ser um número"',() => {
+    const answer = verifyNumber('teste');
+    expect(answer).to.be.equals('o valor deve ser um número');
+  })
+});

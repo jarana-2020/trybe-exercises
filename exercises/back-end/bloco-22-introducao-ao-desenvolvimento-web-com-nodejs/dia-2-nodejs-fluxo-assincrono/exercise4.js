@@ -1,60 +1,60 @@
 const fs = require('fs').promises;
 
-// fs.readFile('./simpsons.json','utf-8')
-//   .then((content) => {
-//     return JSON.parse(content);
-//   })
-//   .then((simpson) => {
-//     return simpson.map(({id,name}) => `${id} - ${name}`);
-//   })
-//   .then((data) => {
-//     data.forEach((character) => console.log(character))
-//   })
+fs.readFile('./simpsons.json','utf-8')
+  .then((content) => {
+    return JSON.parse(content);
+  })
+  .then((simpson) => {
+    return simpson.map(({id,name}) => `${id} - ${name}`);
+  })
+  .then((data) => {
+    data.forEach((character) => console.log(character))
+  })
 
-// const getCharacterById = (id) => {
-//   return new Promise((resolve,reject) => {
-//     fs.readFile('./simpsons.json', 'utf-8')
-//       .then((content) => {
-//         const data = JSON.parse(content)
-//         const result = data.find((simpson) => simpson.id === id)
-//         if(!result) reject('id não encontrado')
-//         resolve(result);
-//       })
-//   })
-// }
+const getCharacterById = (id) => {
+  return new Promise((resolve,reject) => {
+    fs.readFile('./simpsons.json', 'utf-8')
+      .then((content) => {
+        const data = JSON.parse(content)
+        const result = data.find((simpson) => simpson.id === id)
+        if(!result) reject('id não encontrado')
+        resolve(result);
+      })
+  })
+}
 
-// getCharacterById(20)
-//   .then((result) => console.log(result))
-//   .catch((error) => console.log(error))
+getCharacterById(20)
+  .then((result) => console.log(result))
+  .catch((error) => console.log(error))
 
-// const removeCharacters = async() => {
-//   const data = await fs.readFile('./simpsons.json', 'utf-8')
-//     .then((content) => JSON.parse(content));
-//   const result = data.filter(simpson => simpson.id != '10' && simpson.id != '6')
-//   await fs.writeFile('./simpsons.json',JSON.stringify(result));
-// }
+const removeCharacters = async() => {
+  const data = await fs.readFile('./simpsons.json', 'utf-8')
+    .then((content) => JSON.parse(content));
+  const result = data.filter(simpson => simpson.id != '10' && simpson.id != '6')
+  await fs.writeFile('./simpsons.json',JSON.stringify(result));
+}
 
-// removeCharacters();
+removeCharacters();
 
-// const createFileFamily = async() => {
-//   const data = await fs.readFile('./simpsons.json', 'utf-8')
-//     .then((content) => JSON.parse(content));
-//   const result = data.filter(simpson => 
-//     parseInt(simpson.id) >= 1 && parseInt(simpson.id) <= 4)
+const createFileFamily = async() => {
+  const data = await fs.readFile('./simpsons.json', 'utf-8')
+    .then((content) => JSON.parse(content));
+  const result = data.filter(simpson => 
+    parseInt(simpson.id) >= 1 && parseInt(simpson.id) <= 4)
 
-//   await fs.writeFile('./simpsonFamily.json',JSON.stringify(result));
-// }
+  await fs.writeFile('./simpsonFamily.json',JSON.stringify(result));
+}
 
-// createFileFamily();
+createFileFamily();
 
-// const addCharacter = async() => {
-//   const data = await fs.readFile('./simpsonFamily.json', 'utf-8')
-//     .then((content) => JSON.parse(content));
-//   const result = [...data,{id:"5",name:"Nelson Muntz"}]
-//   await fs.writeFile('./simpsonFamily.json',JSON.stringify(result));
-// }
+const addCharacter = async() => {
+  const data = await fs.readFile('./simpsonFamily.json', 'utf-8')
+    .then((content) => JSON.parse(content));
+  const result = [...data,{id:"5",name:"Nelson Muntz"}]
+  await fs.writeFile('./simpsonFamily.json',JSON.stringify(result));
+}
 
-// addCharacter();
+addCharacter();
 
 const replaceCharacter = async() => {
   const data = await fs.readFile('./simpsonFamily.json', 'utf-8')

@@ -1,0 +1,15 @@
+{
+  "name": "dia-3-mocha-chai-e-sinon-testes-de-back-end-com-nodejs",
+  "version": "1.0.0",
+  "description": "testes unitarios",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "author": "julio cesar arana",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3"
+  }
+}

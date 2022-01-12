@@ -1,12 +1,9 @@
 const { expect } = require("chai");
 const fs = require('fs');
 const sinon = require('sinon');
-const verifyNumber = require('./exercise1');
+const { verifyNumber, writeFile } = require('./exercise1');
 
 const CONTENT_FILE = 'teste de escrita em arquivo';
-
-sinon.stub(fs,'writeFileSync')
-  .returns('ok');
 
 describe('Quando o parametro for maior que 0', () => {
  it('retorna positivo',() => {
@@ -39,6 +36,15 @@ describe('Quando o parametro não for Number', () => {
 //Testes para leitura de um arquivo
 
 describe('Quando realizar a escrita no arquivo', () => {
+
+  before(() => {
+    sinon.stub(fs,'writeFileSync').returns('ok');
+  });
+
+  after(() => {
+    fs.writeFileSync.restore();
+  });
+
   it('retorna "ok"',() => {
    const result = writeFile('teste.txt',CONTENT_FILE);
    expect(result).to.be.equals('ok');
@@ -47,8 +53,18 @@ describe('Quando realizar a escrita no arquivo', () => {
 });
 
 describe('Quando ocorrer um erro na escrita no arquivo', () => {
+
+  before(() => {
+    sinon.stub(fs,'writeFileSync')
+      .throws(new Error('erro na escrita do arquivo'))
+  });
+
+  after(() => {
+    fs.writeFileSync.restore();
+  });
+
   it('retorna "erro na escrita do arquivo"',() => {
-    const result = writeFile(1,CONTENT_FILE);
+    const result = writeFile();
     expect(result).to.be.equals('erro na escrita do arquivo');
   })
 

@@ -43,6 +43,16 @@ app.get('/simpsons',(req,res) => {
   res.status(200).json(result);
 })
 
+app.get('/simpsons/:id',(req,res) => {
+  const { id } = req.params;
+  const result = readFile();
+  const simpson =  result.find(character => character.id === id);
+  if(!simpson) {
+    return res.status(404).json({ message: 'simpson not found' });
+  }
+  return res.status(202).json(simpson);
+})
+
 app.listen(3004,() => {
   console.log('listening on port 3004');
 })

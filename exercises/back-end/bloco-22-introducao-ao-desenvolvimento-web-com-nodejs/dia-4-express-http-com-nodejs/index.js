@@ -38,6 +38,11 @@ const readFile = () => {
   return JSON.parse(simpsons);
 }
 
+app.get('/simpsons',(req,res) => {
+  const result = readFile();
+  res.status(200).json(result);
+})
+
 app.listen(3004,() => {
   console.log('listening on port 3004');
 })

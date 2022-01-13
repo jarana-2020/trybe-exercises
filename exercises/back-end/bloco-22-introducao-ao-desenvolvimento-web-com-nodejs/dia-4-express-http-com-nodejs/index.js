@@ -10,11 +10,19 @@ const content = {
 }
 
 app.get('/ping',(req,res) => {
+  const { authorization } = req.headers;
+  if(!authorizat || authorizat.length !== 16) {
+    return res.status(401).json({ message: 'Token inválido!' });
+  }
   res.json(content);
 })
 
 app.post('/hello',(req,res) => {
   const { name } = req.body;
+  const { authorization } = req.headers;
+  if(!authorization || authorization.length !== 16) {
+    return res.status(401).json({ message: 'Token inválido!' });
+  }
   res.status(200).json({message: `Hello, ${name}`});
 })
 
@@ -69,6 +77,10 @@ app.post('/simpsons', async(req,res) => {
 
   return res.status(204).end();
 })
+
+app.use((err, req, res, next) => {
+  res.status(500).send(`Algo deu errado! Mensagem: ${err.message}`);
+});
 
 app.listen(3004,() => {
   console.log('listening on port 3004');

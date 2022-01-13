@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs').promises;
+const generateToken = require('./generateToken');
 
 const app = express();
 app.use(bodyParser.json());
@@ -11,7 +12,7 @@ const content = {
 
 app.get('/ping',(req,res) => {
   const { authorization } = req.headers;
-  if(!authorizat || authorizat.length !== 16) {
+  if(!authorization || authorization.length !== 16) {
     return res.status(401).json({ message: 'Token inválido!' });
   }
   res.json(content);
@@ -76,6 +77,17 @@ app.post('/simpsons', async(req,res) => {
   await writeFile(result);
 
   return res.status(204).end();
+})
+
+app.post('/signup',(req,res) => {
+  const { email, firstName, password, phone } = req.body;
+  if(!email || !firstName || !password || !phone) {
+    return res.status(401).json({ message: 'missing fields'});
+  }
+
+  const randomToken = generateToken();
+
+  res.status(200).json({ token: `${randomToken}`});
 })
 
 app.use((err, req, res, next) => {

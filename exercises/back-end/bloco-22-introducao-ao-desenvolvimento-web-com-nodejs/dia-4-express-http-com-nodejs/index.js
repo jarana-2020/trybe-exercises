@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 
 const app = express();
 app.use(bodyParser.json());
@@ -31,6 +32,11 @@ app.put('/users/:name/:age',(req,res) => {
   const { name,age } = req.params;
   res.status(200).json({message: `Seu nome é ${name} e você tem ${age} anos de idade`});
 })
+
+const readFile = () => {
+  const simpsons = fs.readFileSync('./simpsons.json','utf-8');
+  return JSON.parse(simpsons);
+}
 
 app.listen(3004,() => {
   console.log('listening on port 3004');

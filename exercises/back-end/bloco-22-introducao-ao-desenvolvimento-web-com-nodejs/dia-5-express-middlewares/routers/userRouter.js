@@ -18,7 +18,7 @@ router.post(
 );
 
 router.post(
-  'login',
+  '/login',
   validateEmail,
   validatePassword,
     (_req, res) => {

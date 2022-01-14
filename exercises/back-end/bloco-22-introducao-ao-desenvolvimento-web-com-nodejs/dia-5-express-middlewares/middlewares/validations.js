@@ -28,10 +28,20 @@ const validatePassword = (req,res,next) => {
   next();
 }
 
+const validateToken = (req,res,next) => {
+  const { authorization } = req.headers;
+  const tokenRegex = /^[a-zA-Z0-9]{12}$/;
+  if(!authorization || !tokenRegex.test(authorization)) {
+    return res.status(401).json({message: "invalid token" });
+  }
+  next();
+}
+
 module.exports = {
   validateEmail,
   validateName,
-  validatePassword, 
+  validatePassword,
+  validateToken,
 }
 
 

@@ -7,7 +7,7 @@ const {
   validatePassword,
 } = require('../middlewares/validations');
 
-const User = require('../../models/middlewares/user');
+const User = require('../models/user');
 
 router.post(
   '/',

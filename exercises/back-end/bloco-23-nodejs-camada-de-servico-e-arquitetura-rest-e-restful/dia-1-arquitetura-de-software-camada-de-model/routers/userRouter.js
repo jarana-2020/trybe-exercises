@@ -58,4 +58,25 @@ router.get(
   }
 )
 
+router.put(
+  '/:id',
+  validateFirstName,
+  validateLastName,
+  validateEmail,
+  validatePassword,
+  async(req, res) => {
+    try {
+      const { id } = req.params;
+      const { firstName, lastName, email, password } = req.body;
+      const user = await User.updateUser(id,firstName,lastName,email,password);
+      if (!user) return res.status(400).json({"error": true,"message": "Usuário não encontrado"});
+      return res.status(200).json({id,firstName,lastName,email,password});
+    } catch (error) {
+      console.log(error);
+      res.send(error);
+    }
+   
+  }
+);
+
 module.exports = router;

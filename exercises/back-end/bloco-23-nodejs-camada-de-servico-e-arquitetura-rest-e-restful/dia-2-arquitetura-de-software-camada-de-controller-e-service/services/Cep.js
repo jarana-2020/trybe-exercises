@@ -37,8 +37,19 @@ const findByCep = async(cep) => {
   return newCep(foundedCep);
 };
 
+const createCep = async({ cep,logradouro,bairro,localidade,uf }) => {
+  const cepWithoutTrace = cep.replace('-','')
+  const foundedCep = await CepModel.findByCep(cepWithoutTrace);
+
+  if(foundedCep) return { code: 409, 
+    message: {error: {code: "alreadyExists", message: "CEP já existente"}} };
+  
+  return await CepModel.createCep({cep: cepWithoutTrace, logradouro,bairro,localidade,uf })
+};
+
 module.exports = {
   findByCep,
+  createCep,
 };
 
 

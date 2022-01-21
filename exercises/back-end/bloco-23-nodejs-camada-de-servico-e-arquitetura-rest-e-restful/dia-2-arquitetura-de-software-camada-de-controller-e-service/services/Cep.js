@@ -15,11 +15,25 @@ const newCep = ({ cep, logradouro, bairro, localidade, uf }) => ({
   localidade,
   uf });
 
+  const validate = (cep) => {
+    const REGEX = /\d{5}-?\d{3}/;
+    if(!REGEX.test(cep)) return { code: 400 , 
+      message: { error: {code: "invalidData", message: "Cep inválido"}} };
+
+    return {}
+  }
+
 
 const findByCep = async(cep) => {
   const cepWithoutTrace = cep.replace('-','')
   const foundedCep = await CepModel.findByCep(cepWithoutTrace);
-  console.log(newCep(foundedCep));
+  const validations = validate(cep);
+
+  if(validations.message) return validations;
+
+  if(!foundedCep) return { code: 404, 
+    message: {error: {code: "notFound", message: "CEP não encontrado"}} };
+  
   return newCep(foundedCep);
 };
 

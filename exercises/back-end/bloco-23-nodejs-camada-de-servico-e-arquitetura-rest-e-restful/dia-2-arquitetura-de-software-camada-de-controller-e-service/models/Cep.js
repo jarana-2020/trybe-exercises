@@ -8,6 +8,8 @@ const findByCep = async(cep) => {
 
   const foundedCep = cepData[0];
 
+  if(!foundedCep) return null
+
   return foundedCep;
 };
 

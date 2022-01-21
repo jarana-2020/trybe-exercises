@@ -1,0 +1,19 @@
+{
+  "name": "dia-2-nodejs-fluxo-assincrono",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exercise1.js",
+  "scripts": {
+    "exercicio1": "node exercise1.js",
+    "exercicio3": "node exercise3.js",
+    "exercicio4": "node exercise4.js",
+    "exercicio5": "node exercise5.js",
+    "exercicio6": "node exercise6.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "julio cesar arana",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}

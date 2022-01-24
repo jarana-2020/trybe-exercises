@@ -1,4 +1,5 @@
 const CepModel = require('../models/Cep');
+const RequestCep = require('../models/RequestCep');
 
 const CEP_REGEX = /^[0-9]{5}-[0-9]{3}$/;
 
@@ -25,14 +26,25 @@ const newCep = ({ cep, logradouro, bairro, localidade, uf }) => ({
 
 
 const findByCep = async(cep) => {
+
   const cepWithoutTrace = cep.replace('-','')
   const foundedCep = await CepModel.findByCep(cepWithoutTrace);
   const validations = validate(cep);
 
   if(validations.message) return validations;
 
-  if(!foundedCep) return { code: 404, 
-    message: {error: {code: "notFound", message: "CEP não encontrado"}} };
+  if(!foundedCep) {
+    const searchedCep = await RequestCep.getCep(cepWithoutTrace);
+    if(!searchedCep) return { code: 404, 
+      message: {error: {code: "notFound", message: "CEP não encontrado"}} };
+    
+    const { cep, logradouro, bairro, localidade, uf } = searchedCep;
+
+    const cepCreated = await CepModel
+      .createCep({ cep: cep.replace('-',''), logradouro, bairro, localidade, uf })
+    return newCep(cepCreated);
+     
+  };
   
   return newCep(foundedCep);
 };

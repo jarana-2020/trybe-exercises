@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 
 app.get('/ping',(_req, res) => res.status(200).json({ "message": "pong!" }));
 app.get('/cep/:cep',CepController.findByCep);
+app.post('/cep', CepController.createCep);
 
 
 

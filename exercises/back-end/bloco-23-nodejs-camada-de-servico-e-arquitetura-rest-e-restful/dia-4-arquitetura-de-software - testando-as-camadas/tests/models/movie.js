@@ -27,7 +27,17 @@ describe('Localiza um filme no DB', () => {
     });
 
   });
+
+  describe('Quando não localiza com sucesso', async() => {
+    it('retorna null', async() => {
+      const response = await MovieModel.getMovie();
+      expect(response).to.be.equal(null);
+    });
+
+  });
+  
 });
+
 
 
 

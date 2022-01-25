@@ -1,41 +1,61 @@
 const { expect } = require('chai');
+const sinon = require('sinon');
 
-const MovieModel = {
-  getMovie: () => {}
-};
+const connection = require('../../models/connection');
+const MovieModel = require('../../models/Movie');
+
 
 describe('Localiza um filme no DB', () => {
-  const dataMovie = {
-    id: 1,
-    title: 'Example Movie',
-    directedBy: 'Jane Dow',
-    releaseYear: 1999,
-  }
 
-  describe('Quando localiza com sucesso', async() => {
+  before(async () => {
+    const execute = {
+      id: 1,
+      title: 'Example Movie',
+      directedBy: 'Jane Dow',
+      releaseYear: 1999,
+    }
+    sinon.stub(MovieModel,'getMovie').resolves(execute);
+  })
+
+  after(async () => {
+    MovieModel.getMovie.restore();
+  })
+
+  describe('Quando localiza um filme', async() => {
+
     it('retorna um objeto', async() => {
-      const response = await MovieModel.getMovie(dataMovie);
+      const response = await MovieModel.getMovie(1);
       expect(response).to.be.a('object');
     });
-
+  
     it('o objeto possui as propriedades do filme', async() => {
-      const response = await MovieModel.getMovie(dataMovie);
+      const response = await MovieModel.getMovie(1);
       expect(response).to.have.a.property('id');
       expect(response).to.have.a.property('title');
       expect(response).to.have.a.property('directedBy');
       expect(response).to.have.a.property('releaseYear');
     });
-
-  });
-
-  describe('Quando não localiza com sucesso', async() => {
-    it('retorna null', async() => {
-      const response = await MovieModel.getMovie();
-      expect(response).to.be.equal(null);
-    });
-
-  });
+  })
   
+});
+
+describe('Quando não localiza um filme', async() => {
+
+  before(async () => {
+    const execute = [[]];
+
+    sinon.stub(connection,'execute').resolves(execute);
+  })
+
+  after(async () => {
+    connection.execute.restore();
+  })
+
+  it('retorna null', async() => {
+    const response = await MovieModel.getMovie();
+    expect(response).to.be.equal(null);
+  });
+
 });
 
 

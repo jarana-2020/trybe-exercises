@@ -1,8 +1,8 @@
 const { expect } =require('chai');
 const sinon = require('sinon');
 const connection = require('../../models/connection');
+const MovieModel = require('../../models/Movie');
 
-const MovieService = { getMovie: () => {} }
 
 describe('Busca um filme no DB', () => {
 
@@ -17,7 +17,7 @@ describe('Busca um filme no DB', () => {
 
   describe('quando não localiza um filme no DB', async() => {
     it('retorna null',async() => {
-      const result = await MovieService.getMovie();
+      const result = await MovieModel.getMovie();
       expect(result).to.be.equal(null);
     })
   })
@@ -32,20 +32,20 @@ describe('quando localiza um filme no DB', async() => {
       directedBy: 'Jane Dow',
       releaseYear: 1999,
     }
-    sinon.stub(MovieService,'getMovie').resolves(execute);
+    sinon.stub(MovieModel,'getMovie').resolves(execute);
   })
 
   after(async() => {
-    MovieService.getMovie.restore();
+    MovieModel.getMovie.restore();
   })
 
   it('retorna um objeto',async() => {
-    const result = await MovieService.getMovie(1);
+    const result = await MovieModel.getMovie(1);
     expect(result).to.be.a('object');
   })
   
   it('o objeto possui as propriedades necessarias',async() => {
-    const result = await MovieService.getMovie(1);
+    const result = await MovieModel.getMovie(1);
     expect(result).to.include.all.keys('id', 'title', 'releaseYear', 'directedBy');
   })
 })

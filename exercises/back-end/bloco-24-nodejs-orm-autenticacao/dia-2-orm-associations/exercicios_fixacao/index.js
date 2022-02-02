@@ -68,20 +68,20 @@ app.get('/usersbooks/:id', async (req, res) => {
 });
 
 app.post('/employees', async (req, res) => {
-  // Primeiro iniciamos a transação
-  const t = await sequelize.transaction();
   try {
     const { firstName, lastName, age, city, street, number } = req.body;
 
-    const employee = await Employee.create(
-      { firstName, lastName, age },
-      { transaction: t }, 
-    );
+    const result = await sequelize.transaction(async (t) => {
+      const employee = await Employee.create({
+        firstName, lastName, age
+      }, { transaction: t });
 
-    await Adress.create(
-      { city, street, number, employeeId: employee.id },
-      { transaction: t }, 
-    );
+      await Adress.create({
+        city, street, number, employeeId: employee.id
+      }, { transaction: t });
+
+      return res.status(201).json({ message: 'Cadastrado com sucesso' });
+    });
 
     // Se chegou até essa linha, quer dizer que nenhum erro ocorreu.
     // Com isso, podemos finalizar a transação usando a função `commit`.

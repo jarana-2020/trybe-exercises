@@ -31,7 +31,6 @@ const deleteBook = async(id) => {
 };
 
 const getBookByAuthor = async(name) => {
-  console.log('check', name);
   const books = await Book.findAll(
     { where: { author: name } },
   );

@@ -1,7 +1,12 @@
 const { Book } = require('../models');
 
 const getAllBooks = async() => {
-  const books = await Book.findAll();
+  const books = await Book.findAll({
+    order:[
+      ['title', 'ASC'],
+      ['createdAt','ASC']
+    ]
+  });
   return books;
 };
 

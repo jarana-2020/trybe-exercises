@@ -5,8 +5,13 @@ const BookController = require('./controllers/Book');
 const app = express();
 app.use(bodyParser.json());
 
+const {
+  validateBook,
+} = require('./middlewares/validations');
+
 app.get('/books',BookController.getAllBooks);
 app.get('/books/:id', BookController.getBookById);
+app.post('/books', validateBook, BookController.createBook);
 
 
 

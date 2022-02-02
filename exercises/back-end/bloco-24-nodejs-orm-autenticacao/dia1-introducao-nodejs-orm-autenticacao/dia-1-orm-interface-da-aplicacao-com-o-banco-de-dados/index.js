@@ -6,6 +6,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get('/books',BookController.getAllBooks);
+app.get('/books/:id', BookController.getBookById);
 
 
 

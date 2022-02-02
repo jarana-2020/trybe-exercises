@@ -53,10 +53,23 @@ const deleteBook = (async(req,res) => {
   }
 });
 
+const getBooksByAuthor = (async(req,res) => {
+  try {
+    const { name} = req.query;
+    console.log('cont', name);
+    const books = await BookService.getBookByAuthor(name);
+    if(!books) return res.status(404).json({ message: 'Author não encontrado' });
+    return res.status(200).json(books)
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 module.exports = {
   getAllBooks,
   getBookById,
   createBook,
   updateBook,
   deleteBook,
+  getBooksByAuthor,
 };

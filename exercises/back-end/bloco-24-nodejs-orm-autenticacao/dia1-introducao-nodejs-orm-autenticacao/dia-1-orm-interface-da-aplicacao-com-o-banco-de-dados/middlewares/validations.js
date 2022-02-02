@@ -12,6 +12,15 @@ const validateBook = (req,res,next) => {
   next();
 }
 
+const checkName = (req,res,next) => {
+  const { name } = req.query;
+  if(!name|| typeof name !== 'string') {
+    return res.status(400).json({ message: 'o name é requerido e deve ser texto' })
+  }
+  next();
+};
+
 module.exports = {
   validateBook,
+  checkName,
 }

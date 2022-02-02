@@ -30,10 +30,19 @@ const deleteBook = async(id) => {
   return deletedBook;
 };
 
+const getBookByAuthor = async(name) => {
+  console.log('check', name);
+  const books = await Book.findAll(
+    { where: { author: name } },
+  );
+  return books;
+};
+
 module.exports = {
   getAllBooks,
   getBookById,
   createBook,
   updateBook,
   deleteBook,
+  getBookByAuthor,
 };

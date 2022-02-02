@@ -7,9 +7,11 @@ app.use(bodyParser.json());
 
 const {
   validateBook,
+  checkName,
 } = require('./middlewares/validations');
 
 app.get('/books',BookController.getAllBooks);
+app.get('/books/search',checkName, BookController.getBooksByAuthor);
 app.get('/books/:id', BookController.getBookById);
 app.post('/books', validateBook, BookController.createBook);
 app.post('/books/:id',validateBook,BookController.updateBook);

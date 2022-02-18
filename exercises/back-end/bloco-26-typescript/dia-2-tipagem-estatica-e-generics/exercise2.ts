@@ -1,6 +1,8 @@
 enum Seasons {
-  Primavera=1,
-  Verão,
-  Outono,
-  Inverno
+  OUTONO = "Outono",
+  INVERNO = "Inverno",
+  PRIMAVERA = "Primavera",
+  VERAO = "Verão",
 }
+
+export default Seasons

@@ -3,7 +3,7 @@ import { exit } from 'process';
 import Months from './exercise1';
 import Seasons from './exercise2';
 import { BrandColor, Car, Direction, Door } from './exercise4';
-import { Pizza } from './exercise6';
+import { PizzaCommon } from './PizzaComon';
 
 const months = Object.values(Months);
 
@@ -49,7 +49,9 @@ const hemispheres = {
 };
 
 const hemisphereChoice = readline.keyInSelect(Object.keys(hemispheres),
- 'Selecione o Hemisfério', {cancel: 'Saindo'});
+ 'Selecione o Hemisfério', {cancel: 'Saindo'});import { Pizza } from './exercise6';
+import { PizzaVegetarian } from './PizzaVegetarian';
+import { PizzaSugar } from './PizzaSugar';
 
 if(hemisphereChoice === -1) {
   console.log('Saindo');
@@ -100,19 +102,39 @@ gol.openTheDoor(Door.TraseiraDireita);
 gol.closeTheDoor(Door.TraseiraDireita);
 gol.speedUp();
 
-const calabresa: Pizza = {
+const calabresa: PizzaCommon = {
   flavor: 'Calabresa',
   slices: 8
 }
 console.log(calabresa);
 
-const marguerita: Pizza = {
+const frango: PizzaCommon = {
+  flavor: 'Frango',
+  slices: 6
+}
+console.log(frango);
+
+const pepperoni: PizzaCommon = {
+  flavor: 'Pepperoni',
+  slices: 6
+}
+console.log(pepperoni);
+
+
+const marguerita: PizzaVegetarian = {
   flavor: 'Marguerita',
   slices: 6
 }
 console.log(marguerita);
 
-const nutela: Pizza = {
+const cogumelo: PizzaVegetarian = {
+  flavor: 'Cogumelo',
+  slices: 8
+}
+console.log(cogumelo);
+
+
+const nutela: PizzaSugar = {
   flavor: 'Nutela',
   slices: 4
 }

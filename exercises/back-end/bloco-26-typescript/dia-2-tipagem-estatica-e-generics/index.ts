@@ -3,6 +3,7 @@ import { exit } from 'process';
 import Months from './exercise1';
 import Seasons from './exercise2';
 import { BrandColor, Car, Direction, Door } from './exercise4';
+import { Pizza } from './exercise6';
 
 const months = Object.values(Months);
 
@@ -98,5 +99,24 @@ gol.stop();
 gol.openTheDoor(Door.TraseiraDireita);
 gol.closeTheDoor(Door.TraseiraDireita);
 gol.speedUp();
+
+const calabresa: Pizza = {
+  flavor: 'Calabresa',
+  slices: 8
+}
+console.log(calabresa);
+
+const marguerita: Pizza = {
+  flavor: 'Marguerita',
+  slices: 6
+}
+console.log(marguerita);
+
+const nutela: Pizza = {
+  flavor: 'Nutela',
+  slices: 4
+}
+console.log(nutela);
+
 
 

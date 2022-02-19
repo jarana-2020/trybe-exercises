@@ -2,6 +2,7 @@ import readline from 'readline-sync';
 import { exit } from 'process';
 import Months from './exercise1';
 import Seasons from './exercise2';
+import { BrandColor, Car, Direction, Door } from './exercise4';
 
 const months = Object.values(Months);
 
@@ -65,4 +66,37 @@ const monthAndStations = Object.entries(chosenHemispheres)[montChoice];
 
 const result = monthAndStations[1].join(', ');
 console.log(`Estações : ${ result }`);
+
+const gol = new Car('Wolkswagem',BrandColor.Prata, 4);
+gol.openTheDoor(Door.FrontalEsquerda);
+gol.closeTheDoor(Door.FrontalEsquerda);
+gol.turnOn();
+gol.speedUp();
+gol.speedDow();
+gol.turn(Direction.Esquerda);
+gol.speedUp();
+gol.speedDow();
+gol.turn(Direction.Direita);
+gol.speedUp();
+gol.speedDow();
+gol.turn(Direction.Direita);
+gol.speedUp();
+gol.stop();
+gol.openTheDoor(Door.TraseiraDireita);
+gol.closeTheDoor(Door.TraseiraDireita);
+gol.speedUp();
+gol.speedDow();
+gol.turn(Direction.Direita);
+gol.speedUp();
+gol.speedDow();
+gol.turn(Direction.Esquerda);
+gol.speedUp();
+gol.speedDow();
+gol.turn(Direction.Direita);
+gol.speedUp();
+gol.stop();
+gol.openTheDoor(Door.TraseiraDireita);
+gol.closeTheDoor(Door.TraseiraDireita);
+gol.speedUp();
+
 

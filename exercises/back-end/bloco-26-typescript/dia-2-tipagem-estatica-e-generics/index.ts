@@ -5,6 +5,8 @@ import Seasons from './exercise2';
 import { BrandColor, Car, Direction, Door } from './exercise4';
 import { PizzaCommon } from './PizzaComon';
 
+type CallBackFilter<T> = (item:T, index?: number, array?: Array<T> ) => boolean;
+
 const months = Object.values(Months);
 
 const montChoice = readline.keyInSelect(months, 'Selecione o mês', { cancel: 'Sair' });
@@ -139,6 +141,20 @@ const nutela: PizzaSugar = {
   slices: 4
 }
 console.log(nutela);
+
+const myFilter = <T>(array: Array<T>, callback: CallBackFilter<T>): Array<T> => {
+  const newArray: Array<T> = [];
+  for(let i = 0; i < array.length; i += 1) {
+    if(callback(array[i], i, array)) {
+      newArray.push(array[i])
+    }
+  }
+  return newArray;
+}
+
+console.log(myFilter([1,2,3],(item) => {
+  return item < 3
+}));
 
 
 

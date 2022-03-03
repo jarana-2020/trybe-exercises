@@ -7,18 +7,24 @@
     "extends": [
         "plugin:react/recommended",
         "airbnb",
-        "plugin:jest/recommended"
+        "plugin:jest/recommended",
+        "eslint:recommended", 
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
     ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
         },
         "ecmaVersion": "latest",
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": "./tsconfig.json"
     },
     "plugins": [
         "react",
-        "jest"
+        "jest",
+        "@typescript-eslint"
     ],
     "rules": {
         "react/jsx-filename-extension": [
@@ -29,6 +35,7 @@
           ],
           "global-require": "off",
           "import/prefer-default-export": "off",
-          "no-unused-expressions": ["error", { "allowTaggedTemplates": true }]
+          "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
+          "@typescript-eslint/rule-name": "error"
     }
 }

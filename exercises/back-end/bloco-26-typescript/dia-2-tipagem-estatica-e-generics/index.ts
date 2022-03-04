@@ -156,5 +156,13 @@ console.log(myFilter([1,2,3],(item) => {
   return item < 3
 }));
 
+type Object = {
+  [key: string]: string,
+}
+type Key = keyof Object;
 
+const getData = (obj: Object, keyObj: Key) => {
+  console.log(obj[keyObj]);
+}
+getData({name: 'julio', color: 'white'}, 'name');
 

@@ -15,9 +15,13 @@
         "ecmaVersion": "latest"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "no-param-reassign-allow-reduce"
     ],
     "rules": {
-        "@typescript-eslint/rule-name": "error"
+        "no-underscore-dangle": ["error" ,{ "allowAfterThis": true }],
+        "class-methods-use-this": "off",
+        "no-param-reassign": 0,
+        "no-console": "off"
     }
 }

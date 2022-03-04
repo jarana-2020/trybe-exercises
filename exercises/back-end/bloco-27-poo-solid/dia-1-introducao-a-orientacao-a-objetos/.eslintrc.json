@@ -18,10 +18,30 @@
         "@typescript-eslint",
         "no-param-reassign-allow-reduce"
     ],
+    "settings": {
+        "import/extensions": [".js", ".mjs", ".jsx", ".ts", ".tsx"],
+        "import/resolver": {
+            "node": {
+              "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+          }
+      },    
     "rules": {
         "no-underscore-dangle": ["error" ,{ "allowAfterThis": true }],
         "class-methods-use-this": "off",
         "no-param-reassign": 0,
-        "no-console": "off"
+        "no-console": "off",
+        "import/no-unresolved": 0,
+        "@typescript-eslint/indent": [2, 2],
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+              "js": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never"
+            }
+         ]
     }
 }

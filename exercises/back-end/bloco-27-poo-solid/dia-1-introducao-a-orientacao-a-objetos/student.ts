@@ -1,5 +1,5 @@
 class Student {
-  name: string;
+  private _name: string;
 
   private _registration: string;
 
@@ -11,10 +11,19 @@ class Student {
     name: string,
     registration: string,
   ) {
-    this.name = name;
+    this._name = name;
     this._registration = registration;
     this._examGrades = [];
     this._examWorks = [];
+  }
+
+  get name(): string {
+    return this._name;
+  }
+
+  set name(value: string) {
+    if (this._name.length < 3) throw new Error('O nome deve ter mais de 3 caracteres');
+    this._name = value;
   }
 
   get registration(): string {
@@ -59,6 +68,6 @@ class Student {
 }
 
 const student1 = new Student('Julio', '1102020');
-student1.examGrades = [10, 20, 40, 50, 60];
+student1.examGrades = [10, 20, 40, 50];
 student1.examWorks = [10, 20];
 console.log(student1);

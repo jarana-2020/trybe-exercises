@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-import { match } from 'assert';
 import Person from './person';
 
 class Student extends Person {
@@ -12,6 +11,8 @@ class Student extends Person {
   constructor(name: string, birthDate: Date) {
     super(name, birthDate);
     this._enrollment = this.generateEnrollment();
+    this._examGrades = [];
+    this._workGrades = [];
   }
 
   get enrollment() {

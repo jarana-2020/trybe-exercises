@@ -1,15 +1,15 @@
 export default class Person {
-  private _name: string;
+  private _name: string = String();
 
-  private _birthDate: Date;
+  private _birthDate: Date = new Date();
 
   constructor(name: string, birthDate: Date) {
-    this._name = name;
-    this._birthDate = birthDate;
+    this.name = name;
+    this.birthDate = birthDate;
   }
 
   get name() : string {
-    return this.name;
+    return this._name;
   }
 
   set name(value: string) {
@@ -18,7 +18,9 @@ export default class Person {
   }
 
   get age(): number {
-    return new Date().getFullYear() - this._birthDate.getFullYear();
+    let totalAge = new Date().getFullYear() - this._birthDate.getFullYear();
+    if (new Date().getMonth() < this._birthDate.getMonth()) totalAge -= 1;
+    return totalAge;
   }
 
   get birthDate() {
@@ -38,9 +40,13 @@ export default class Person {
     if (new Date().getTime() < value.getTime()) {
       throw new Error('A data de aniversario não pode ser uma data futura');
     }
-    if (this.age > 120) throw new Error('A pessoa não pode ter mais de 120 anos');
+    if (new Date().getFullYear() - value.getFullYear() > 120) {
+      throw new Error('A pessoa não pode ter mais de 120 anos');
+    }
   }
 }
-const birthDate1 = new Date('1900-05-13');
-const person1 = new Person('Ju', birthDate1);
-console.log(person1);
+// const birthDate1 = new Date('1900-05-13');
+// const person1 = new Person('Ju', birthDate1);
+// console.log(person1);
+const invalidPersonName = new Person('Julio', new Date('1982/06/07'));
+console.log(invalidPersonName.age);

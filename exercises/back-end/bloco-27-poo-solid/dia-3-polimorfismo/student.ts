@@ -1,18 +1,16 @@
 import Enrollment from "./enrollable";
+import EvaluationResult from "./evaluationResult";
 import Person from "./person";
 
 export default class Student extends Person implements Enrollment {
   private _enrollment: string = String();
+  private _evaluationResult: EvaluationResult[];
 
-  private _examGrades: number[];
-
-  private _workGrades: number[];
 
   constructor(name: string, birthDate: Date) {
     super(name, birthDate);
     this.enrollment = this.generateEnrollment();
-    this._examGrades = [];
-    this._workGrades = [];
+    this._evaluationResult = [];
   }
 
   get enrollment() {
@@ -24,36 +22,20 @@ export default class Student extends Person implements Enrollment {
     this._enrollment = value;
   }
 
-  get examGrades() {
-    return this._examGrades;
+  get evaluationResult(): EvaluationResult[] {
+    return this._evaluationResult;
   }
 
-  set examGrades(values: number[]) {
-    if (values.length > 4) throw new Error('O número maximo de notas é 4');
-    this._examGrades = values;
-  }
-
-  get workGrades() {
-    return this._workGrades;
-  }
-
-  set workGrades(values: number[]) {
-    if (values.length > 2) throw new Error('O número maximo de notas de trabalho é 2');
-    this._workGrades = values;
-  }
 
   sumNotes(): number {
-    const result = [...this._examGrades, ...this._workGrades]
-      .reduce((previousValue, current) => {
-        current += previousValue;
-        return current;
-      }, 0);
-    return result;
+    const result = [...this._evaluationResult]
+      .reduce((previous, note) => note.score + previous, 0 );
+    return result
   }
 
   sumAverageNotes(): number {
     const notes = this.sumNotes();
-    const divisorNotes = this.examGrades.length + this.workGrades.length;
+    const divisorNotes = this.evaluationResult.length;
     return notes / divisorNotes;
   }
 
@@ -64,6 +46,10 @@ export default class Student extends Person implements Enrollment {
       enrollment += characteres.charAt(Math.floor(Math.random() * characteres.length));
     }
     return enrollment;
+  }
+
+  addEvaluationResult(value: EvaluationResult) {
+    this._evaluationResult.push(value)
   }
 }
 

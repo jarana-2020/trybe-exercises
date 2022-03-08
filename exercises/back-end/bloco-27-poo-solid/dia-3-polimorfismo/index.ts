@@ -1,5 +1,7 @@
 import EvaluationResult from "./evaluationResult";
 import Exam from "./exam";
+import Order from "./order";
+import OrderItem from "./orderItem";
 import Student from "./student";
 import Subject from "./subject";
 import Teacher from "./teacher";
@@ -30,4 +32,9 @@ lucas.addEvaluationResult(new EvaluationResult(work2, 35));
 console.log('Avaliações:',carolina.evaluationResult);
 console.log('Soma das notas: ', carolina.sumNotes());
 console.log('Média das notas: ', carolina.sumAverageNotes());
+
+const orderItem1 = new OrderItem('coca',5.00);
+const order1 = new Order(carolina,[orderItem1],'dinheiro')
+console.log(order1);
+
 

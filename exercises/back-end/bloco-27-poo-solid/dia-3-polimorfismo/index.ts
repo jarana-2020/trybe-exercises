@@ -2,6 +2,7 @@ import EvaluationResult from "./evaluationResult";
 import Exam from "./exam";
 import Order from "./order";
 import OrderItem from "./orderItem";
+import OrderRepository from "./orderRepository";
 import Student from "./student";
 import Subject from "./subject";
 import Teacher from "./teacher";
@@ -33,8 +34,20 @@ console.log('Avaliações:',carolina.evaluationResult);
 console.log('Soma das notas: ', carolina.sumNotes());
 console.log('Média das notas: ', carolina.sumAverageNotes());
 
-const orderItem1 = new OrderItem('coca',5.00);
-const order1 = new Order(carolina,[orderItem1],'dinheiro')
-console.log(order1);
+const refri = new OrderItem('coca',5.00);
+const juice = new OrderItem('juice',6.00);
+const carolinaOrder = new Order(carolina,[refri, juice],'dinheiro');
+const lucasOrder = new Order(lucas,[juice], 'cartão');
+
+const orderRepository = new OrderRepository();
+orderRepository.addOrder(carolinaOrder);
+orderRepository.addOrder(carolinaOrder);
+orderRepository.addOrder(lucasOrder);
+// console.log(orderRepository.listByClient(carolina));
+console.log(orderRepository.listBySortedValue('menor'));
+
+
+
+
 
 

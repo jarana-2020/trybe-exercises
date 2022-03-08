@@ -2,6 +2,8 @@ import OrderItem from "./orderItem";
 import Person from "./person";
 
 export default class Order {
+  private _id: string = String();
+  private _createdAt: Date; 
   private _client: Person;
   private _items: OrderItem[] = [];
   private _paymentMethod: string = String();
@@ -11,8 +13,18 @@ export default class Order {
     this._client = client;
     this.items = items;
     this.paymentMethod = paymentMethod;
+    this._id = this.generateId();
+    this._createdAt = new Date();
 
     if(discount) this.discount = discount;
+  }
+
+  get id() {
+    return this._id;
+  }
+
+  get createdAt() {
+    return this._createdAt;
   }
 
   get client() {
@@ -61,5 +73,14 @@ export default class Order {
   calculateTotalWithDiscount() {
     const totalWithoutDiscount = this.calculateTotal();
     return totalWithoutDiscount * (1 - this._discount);
+  }
+
+  generateId() {
+    const characteres = '0123456789';
+    let id = '';
+    for(let i = 0; i < 8; i += 1) {
+      id += characteres.charAt(Math.floor(Math.random() * characteres.length)) ;
+    }
+    return id;
   }
 }

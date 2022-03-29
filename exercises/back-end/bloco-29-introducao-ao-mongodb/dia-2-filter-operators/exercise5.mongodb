@@ -1,0 +1,2 @@
+use('class2');
+db.superheroes.findOne({'aspects.height': { $gte: 200 }});

@@ -1,0 +1,2 @@
+use('class2');
+db.superheroes.find({'aspects.hairColor': {$in: ['black','No Hair']}})

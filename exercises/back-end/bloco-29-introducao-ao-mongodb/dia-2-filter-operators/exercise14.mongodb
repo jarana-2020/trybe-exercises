@@ -1,0 +1,8 @@
+use('class2');
+db.superheroes.find({
+  $and: [
+    {'publisher': {$eq: 'Marvel Comics'}},
+      {
+        $or: [{'aspects.height': {$eq: 180}}, {'aspects.height': { $eq: 200 }}]
+      }
+]})

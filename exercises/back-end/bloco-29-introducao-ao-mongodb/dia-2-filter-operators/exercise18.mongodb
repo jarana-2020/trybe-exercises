@@ -1,0 +1,2 @@
+use('class2');
+db.superheroes.deleteOne({'publisher': { $eq: 'Sony Pictures' }});

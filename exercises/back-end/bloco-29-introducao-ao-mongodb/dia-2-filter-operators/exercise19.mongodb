@@ -1,0 +1,2 @@
+use('class2');
+db.superheroes.deleteMany({'publisher': { $eq: 'George Lucas' }});

@@ -1,9 +1,9 @@
 use('class');
 db.movies.updateOne(
-  {title: 'Batman'},
+  {title: 'Godzilla'},
   {
     $set: {
-      imdbRating: 7.7
+      budget: 1
     }
   }
 )

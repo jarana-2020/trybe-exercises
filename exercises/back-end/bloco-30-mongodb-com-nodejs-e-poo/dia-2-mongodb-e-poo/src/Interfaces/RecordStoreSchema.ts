@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const RecordStoreSchema = z.object({
+const recordStoreSchema = z.object({
   artist: z.string(),
   title: z.string(),
   format: z.string(),
@@ -8,7 +8,7 @@ const RecordStoreSchema = z.object({
   new: z.boolean(),
 })
 
-type RecordStore = z.infer< typeof RecordStoreSchema >;
+type RecordStore = z.infer< typeof recordStoreSchema >;
 
 export default RecordStore;
-export { RecordStoreSchema }
+export { recordStoreSchema }

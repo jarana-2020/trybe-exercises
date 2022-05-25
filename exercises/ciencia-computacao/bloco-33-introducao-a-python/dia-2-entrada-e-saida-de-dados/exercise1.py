@@ -5,7 +5,7 @@
 def vertical_iverted(name):
     word_length = len(name)
     for index in range(len(name)):
-        print(name[0 : word_length - index])
+        print(name[0: word_length - index])
 
 
 def vertical_name(name):

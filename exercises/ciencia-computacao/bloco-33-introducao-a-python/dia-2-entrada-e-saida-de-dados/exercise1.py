@@ -18,5 +18,5 @@ def vertical_name(name):
 # vertical_name("ana")
 # vertical_iverted("julio")
 
-name = input('Informe o nome')
+name = input("Informe o nome")
 vertical_iverted(name)

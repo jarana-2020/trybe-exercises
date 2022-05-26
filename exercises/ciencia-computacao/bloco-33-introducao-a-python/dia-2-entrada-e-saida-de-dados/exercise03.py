@@ -9,7 +9,7 @@ students_rec = []
 with open("arquivo.txt", mode="r") as file:
     for line in file:
         student = line
-        student = line.split(" ")
+        student = student.split(" ")
         if int(student[1]) < 6:
             students_rec.append(student[0] + "\n")
 
